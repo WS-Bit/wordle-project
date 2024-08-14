@@ -50,7 +50,23 @@ h1 {
     background-color: rgb(255, 255, 255);
   }
 
-  .submit-button {
+  #submit-button {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .guesses-box {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+
+  #guesses {
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;

@@ -2,22 +2,15 @@ function init() {
     const wordGrid = document.querySelector(".grid");
     const wordCellCount = 5;
     const wordRows = [];
-    const request = new Request("/myEndpoint", {
-        method: "POST",
-        body: "Hello world",
-      });
-      
-      request.body;
-      
-
     // Selected elements
 
-    const submitButton = document.querySelector(".submit-button")
+    const submitButton = document.querySelector("#submit-button")
+    const wordGuess = document.querySelector(".form")
+    // wordGuess.submit();
 
     // Game state
     let gameActive = true;
     let guesses = 0;
-    let currentWord = 'ATONE'
 
     // Functions
     function createWordRow(rowIndex) {
@@ -25,19 +18,29 @@ function init() {
         for (let i = 0; i < wordCellCount; i++) {
             const cell = document.createElement("div");
             wordGrid.appendChild(cell);
-            cell.innerText = i;
+            cell.innerText = "";
             wordRow.push(cell);
         }
         wordRows.push(wordRow);
     }
+    for (let i = 0; i < 6; i++) {
+        createWordRow(i);
+    }
+
+
+    function gameStart() {
+        if (!gameActive) return;
+        let guesses = 0;
+        let currentWord = 'ATONE'
+    }
 
     function wordCheck() {
         if (!gameActive) return;
-        
-    }
+        function submitGuess() {
+            document.querySelector(".form").submit();
 
-    for (let i = 0; i < 6; i++) {
-        createWordRow(i);
+        }
+        
     }
 
     // Event listeners
@@ -46,10 +49,8 @@ function init() {
         event.preventDefault();
     })
     
-
+    gameStart();
 
 }
-
-
 
 window.addEventListener("DOMContentLoaded", init);
