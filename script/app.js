@@ -1,55 +1,55 @@
 function init() {
     const wordGrid = document.querySelector(".grid");
-    const wordWidth = 5;
-    const wordCellCount = wordWidth * wordWidth + 5;
-    const wordCells = [];
+    const wordCellCount = 5;
+    const wordRows = [];
+    const request = new Request("/myEndpoint", {
+        method: "POST",
+        body: "Hello world",
+      });
+      
+      request.body;
+      
 
-    const keyboardGrid = document.querySelector(".keyboard");
-    const keyboardWidth = 10;
-    const keyboardCellCount = keyboardWidth * 3;
-    const keyboardCells = [];
+    // Selected elements
 
-    // lets //
+    const submitButton = document.querySelector(".submit-button")
 
+    // Game state
     let gameActive = true;
-    let lives = 6;
+    let guesses = 0;
+    let currentWord = 'ATONE'
 
-
-
-    // functions below //
-
-    function createWordGrid() {
-        for (let i = 0; i < wordCellCount; i++) { 
-            const wCell = document.createElement("div"); 
-            wordGrid.appendChild(wCell); 
-            wCell.innerText = i;
-            wordCells.push(wCell); 
+    // Functions
+    function createWordRow(rowIndex) {
+        const wordRow = [];
+        for (let i = 0; i < wordCellCount; i++) {
+            const cell = document.createElement("div");
+            wordGrid.appendChild(cell);
+            cell.innerText = i;
+            wordRow.push(cell);
         }
+        wordRows.push(wordRow);
     }
-
-    function createKeyboardGrid() {
-        for (let i = 0; i < keyboardCellCount; i++) { 
-            const kCell = document.createElement("div"); 
-            keyboardGrid.appendChild(kCell); 
-            kCell.innerText = i;
-            keyboardCells.push(kCell); 
-        }
-    }
-
-    createWordGrid();
-    createKeyboardGrid();
 
     function wordCheck() {
+        if (!gameActive) return;
         
-
     }
 
+    for (let i = 0; i < 6; i++) {
+        createWordRow(i);
+    }
 
+    // Event listeners
 
-
-
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault();
+    })
+    
 
 
 }
 
-window.addEventListener("DOMContentLoaded", init)
+
+
+window.addEventListener("DOMContentLoaded", init);

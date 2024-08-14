@@ -17,7 +17,7 @@ h1 {
    
 
 
-   .grid-wrapper, .keyboard-wrapper {
+   .grid-wrapper {
     height: 50vh;
     display: flex;
     justify-content: center;
@@ -28,7 +28,7 @@ h1 {
     box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
     height: 400px;
     width: 600px;
-    background-color: rgb(91, 196, 168);
+    background-color: rgb(194, 194, 194);
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;
@@ -55,17 +55,7 @@ h1 {
     flex-wrap: wrap; 
     justify-content: center;
     align-items: center;
-  }
-
-  .keyboard {
-    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
-    height: 400px;
-    width: 600px;
-    background-color: rgb(228, 147, 230);
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    align-items: center;
+    margin: 20px;
   }
 
   
@@ -78,13 +68,15 @@ h1 {
     justify-content: center;
     align-items: center;
   }
-  
-  .keyboard div {
-    width: 8%; 
-    height: 12%;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
+  .correctLetter {
+    background-color: forestgreen;
+  }
+
+  .placementLetter {
+    background-color: yellow;
+  }
+
+  .wrongLetter {
+    background-color: red;
   }
