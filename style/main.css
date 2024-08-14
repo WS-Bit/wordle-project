@@ -1,0 +1,49 @@
+.grid-wrapper, .keyboard-wrapper {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grid {
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+    height: 400px;
+    width: 600px;
+    background-color: rgb(91, 196, 168); /* Adjust for the keyboard as needed */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .keyboard {
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+    height: 400px;
+    width: 600px;
+    background-color: rgb(228, 147, 230); /* Adjust for the keyboard as needed */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .grid div {
+    width: 18%; /* Adjust size as needed */
+    height: 10%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .keyboard div {
+    width: 8%; /* Adjust size as needed */
+    height: 12%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
