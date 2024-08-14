@@ -1,4 +1,23 @@
-.grid-wrapper, .keyboard-wrapper {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+
+h1 {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+}
+   
+
+
+   .grid-wrapper, .keyboard-wrapper {
     height: 50vh;
     display: flex;
     justify-content: center;
@@ -9,9 +28,31 @@
     box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
     height: 400px;
     width: 600px;
-    background-color: rgb(91, 196, 168); /* Adjust for the keyboard as needed */
+    background-color: rgb(91, 196, 168);
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-input {
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+    height: 30px;
+    width: 150px;
+    font-family: system-ui, sans-serif;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .submit-button {
+    display: flex;
+    flex-wrap: wrap; 
     justify-content: center;
     align-items: center;
   }
@@ -20,16 +61,16 @@
     box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
     height: 400px;
     width: 600px;
-    background-color: rgb(228, 147, 230); /* Adjust for the keyboard as needed */
+    background-color: rgb(228, 147, 230);
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap; 
     justify-content: center;
     align-items: center;
   }
 
   
   .grid div {
-    width: 18%; /* Adjust size as needed */
+    width: 18%; 
     height: 10%;
     border: 1px solid black;
     display: flex;
@@ -39,7 +80,7 @@
   }
   
   .keyboard div {
-    width: 8%; /* Adjust size as needed */
+    width: 8%; 
     height: 12%;
     border: 1px solid black;
     display: flex;

@@ -39,7 +39,10 @@ function init() {
     createWordGrid();
     createKeyboardGrid();
 
+    function wordCheck() {
+        
 
+    }
 
 
 
