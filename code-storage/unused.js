@@ -12,3 +12,9 @@ function createKeyboardGrid() {
         keyboardCells.push(kCell); 
     }
 }
+
+const emptyField = document.getElementById(".text-input").value;
+if (emptyField === "") {
+alert("Please fill out all fields.");
+return;
+}

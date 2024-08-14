@@ -2,18 +2,33 @@ function init() {
     const wordGrid = document.querySelector(".grid");
     const wordCellCount = 5;
     const wordRows = [];
-    // Selected elements
+    console.log(wordRows)
 
-    const submitButton = document.querySelector("#submit-button")
-    const wordGuess = document.querySelector(".form")
-    // wordGuess.submit();
+    //! Game state
 
-    // Game state
     let gameActive = true;
     let guesses = 0;
+    let currentWord = 'ATONE'
 
-    // Functions
-    function createWordRow(rowIndex) {
+    //! Basic validation
+
+    //? empty field error
+
+    //! Capture form data
+
+    document.querySelector("#submit-button").addEventListener("click", function(event) {
+        event.preventDefault();
+        if (!gameActive) return;
+        const guess = document.querySelector(".text-input").value;
+        console.log("Your guess of:", guess);
+        if (guess === currentWord) { 
+            console.log("You win!")
+            }
+    });
+
+    //! Functions
+
+    function createWordRow() {
         const wordRow = [];
         for (let i = 0; i < wordCellCount; i++) {
             const cell = document.createElement("div");
@@ -27,28 +42,15 @@ function init() {
         createWordRow(i);
     }
 
-
     function gameStart() {
         if (!gameActive) return;
         let guesses = 0;
-        let currentWord = 'ATONE'
     }
 
-    function wordCheck() {
-        if (!gameActive) return;
-        function submitGuess() {
-            document.querySelector(".form").submit();
+    function wordIncludes() {
 
-        }
-        
     }
 
-    // Event listeners
-
-    submitButton.addEventListener('click', function(event) {
-        event.preventDefault();
-    })
-    
     gameStart();
 
 }

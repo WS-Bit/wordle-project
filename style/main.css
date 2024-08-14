@@ -35,7 +35,7 @@ h1 {
     align-items: center;
   }
 
-  .form {
+  #form {
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;
