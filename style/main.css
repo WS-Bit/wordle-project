@@ -89,10 +89,10 @@ h1 {
     background-color: forestgreen;
   }
 
-  .placementLetter {
+  .partial {
     background-color: yellow;
   }
 
-  .wrongLetter {
+  .incorrect {
     background-color: red;
   }
