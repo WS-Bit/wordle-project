@@ -22,7 +22,7 @@ for (let i = 0; i < 6; i++) {
 }
 
 function checkForWinner() {
-  const GUESS = document.querySelector("input").value;
+  const GUESS = document.querySelector("input").value.toUpperCase();
   if (GUESS.length !== 5) {
     alert('Please enter a 5-letter word.');
     return;
@@ -81,7 +81,23 @@ function checkForWinner() {
 }
 
 function endGame() {
-  
+  gameActive = false;
+  const gameOverMessage = document.createElement('div');
+
+  gameOverMessage.innerHTML = 'Game Over!';
+  gameOverMessage.style.position = 'absolute';
+  gameOverMessage.style.top = '50%';
+  gameOverMessage.style.left = '50%';
+  gameOverMessage.style.transform = 'translate(-50%, -50%)';
+  gameOverMessage.style.backgroundColor = 'orange';
+  gameOverMessage.style.fontSize = '48px'; // Increase font size
+  gameOverMessage.style.padding = '20px'; // Add padding
+  gameOverMessage.style.fontWeight = 'bold'; // Make text bold
+  document.body.appendChild(gameOverMessage);
+  submitButton.removeEventListener('click', checkForWinner)
+}
+
+function correctLetter() {
 
 }
 
