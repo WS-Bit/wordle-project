@@ -7,7 +7,7 @@ function init() {
     //! Game state
 
     let gameActive = true;
-    let guesses = 0;
+    let guesses = 6;
     let currentWord = 'ATONE'
 
     //! Basic validation
@@ -15,6 +15,8 @@ function init() {
     //? empty field error
 
     //! Element grabbing
+
+    const guessCount = document.querySelector('#guesses')
 
     //! Functions
 
@@ -31,23 +33,20 @@ function init() {
     for (let i = 0; i < 6; i++) {
         createWordRow(i);
     }
-
-    function gameStart() {
-        if (!gameActive) return;
-        let guesses = 0;
-    }
-
-
-    
-    gameStart();
     
 
     //! Capture form data and analyse
     document.querySelector("#submit-button").addEventListener("click", function(event) {
         event.preventDefault();
-        if (!gameActive) return;
-
         const guess = document.querySelector(".text-input").value;
+        if (!gameActive) return;
+        if (guess.length !== 5) {
+            alert('Please enter a 5-letter word.');
+            return;
+          }
+        guesses -= 1;
+        console.log(guesses)
+        guessCount.innerText = guesses
         if (guess.length !== 5) {
             alert('Please enter a 5-letter word.');
             return;
@@ -56,10 +55,16 @@ function init() {
 
           const correctWord = currentWord.split('');
           
-          if (guess === currentWord) {
+
+        if (guesses.innerText === '5' && guess === currentWord) {
+            rowTwoColours();
+            console.log("You win!");
+        } 
+        else if (guess === currentWord) {
               rowOneColours();
               console.log("You win!");
-          } 
+        } 
+          
         
         else if (guess.slice(-3) === correctWord.slice(-3).join('')) {
             console.log("Last three letters are correct!");
@@ -134,9 +139,10 @@ function init() {
         }
           
           
+        //! FUNCTIONS FOR COLOUR ADDED TO EACH CELL
         
-
-            function rowOneColours() {
+        function rowOneColours() {
+            if (guesses.innerText !== '6'); {
                 if (guess === currentWord) {
                     for (let i = 0; i < wordRows[0].length; i++) {
                         wordRows[0][i].classList.add('correctLetter');
@@ -147,10 +153,31 @@ function init() {
                     }
                 }
             }
+        }
 
+        function rowTwoColours() {
+            if (guesses.innerText === '5') {
+                if (guess === currentWord) {
+                    for (let i = 0; i < wordRows[1].length; i++) {
+                        wordRows[1][i].classList.add('correctLetter');
+                    }
+                } else if ((guess[0] === 'A' && guess[1] === 'T' && guess[2] === 'O' && guess[3] === 'N' && guess[4] !== 'E')) {
+                    for (let i = 0; i < wordRows[1].length - 1; i++) {
+                        wordRows[1][i].classList.add('correctLetter');
+                    }
+                }
+            }
+        }
+
+    
+
+
+
+    //! END OF FORM CAPTURE AND ANALYSIS
     });
 
 
 }
 
 window.addEventListener("DOMContentLoaded", init);
+
