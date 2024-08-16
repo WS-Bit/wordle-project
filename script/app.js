@@ -153,11 +153,12 @@ const wordGrid = document.querySelector(".grid");
 const wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * wordArray.length);
-const CORRECT_GUESS = wordArray[randomWordIndex];
+let CORRECT_GUESS = wordArray[randomWordIndex];
 console.log(CORRECT_GUESS);
-const correctArray = CORRECT_GUESS.split("");
+let correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button");
 const guessesElement = document.querySelector("#guesses");
+const playAgainButton = document.getElementById('play-again');
 let guesses = 6;
 let currentRowIndex = 0;
 let wins = localStorage.getItem('wordleWins');
@@ -224,50 +225,90 @@ gridRows[currentRowIndex].forEach((cell, index) => {
 }
 
 function winGame() {
-gameActive = false;
-const gameOverMessage = document.createElement('div');
+  incrementWins()
+  gameActive = false;
+  const gameOverMessage = document.createElement('div');
+  gameOverMessage.id = 'winGameMessage'
 
-gameOverMessage.innerHTML = 'You win!';
-gameOverMessage.style.position = 'absolute';
-gameOverMessage.style.top = '50%';
-gameOverMessage.style.left = '50%';
-gameOverMessage.style.transform = 'translate(-50%, -50%)';
-gameOverMessage.style.backgroundColor = 'rgb(113, 255, 168)';
-gameOverMessage.style.fontSize = '48px';
-gameOverMessage.style.padding = '20px';
-gameOverMessage.style.fontWeight = 'bold'; 
-document.body.appendChild(gameOverMessage);
-submitButton.removeEventListener('click', checkForWinner)
+  gameOverMessage.innerHTML = 'You win!';
+  gameOverMessage.style.position = 'absolute';
+  gameOverMessage.style.top = '50%';
+  gameOverMessage.style.left = '50%';
+  gameOverMessage.style.transform = 'translate(-50%, -50%)';
+  gameOverMessage.style.backgroundColor = 'rgb(113, 255, 168)';
+  gameOverMessage.style.fontSize = '48px';
+  gameOverMessage.style.padding = '20px';
+  gameOverMessage.style.fontWeight = 'bold'; 
+  document.body.appendChild(gameOverMessage);
+  submitButton.removeEventListener('click', checkForWinner)
+  playAgainButton.style.display = 'block';
 }
 
 function loseGame() {
-gameActive = false;
+  gameActive = false;
+  eraseWins();
+  const gameOverContainer = document.createElement('div');
+  gameOverContainer.id = 'gameOverContainer';
+  gameOverContainer.style.position = 'absolute';
+  gameOverContainer.style.top = '50%';
+  gameOverContainer.style.left = '50%';
+  gameOverContainer.style.transform = 'translate(-50%, -50%)';
+  gameOverContainer.style.backgroundColor = 'rgb(214, 165, 250)';
+  gameOverContainer.style.fontSize = '28px';
+  gameOverContainer.style.padding = '20px';
+  gameOverContainer.style.fontWeight = 'bold';
+  gameOverContainer.style.textAlign = 'center';
 
-const gameOverContainer = document.createElement('div');
-gameOverContainer.id = 'gameOverContainer';
-gameOverContainer.style.position = 'absolute';
-gameOverContainer.style.top = '50%';
-gameOverContainer.style.left = '50%';
-gameOverContainer.style.transform = 'translate(-50%, -50%)';
-gameOverContainer.style.backgroundColor = 'rgb(214, 165, 250)';
-gameOverContainer.style.fontSize = '28px';
-gameOverContainer.style.padding = '20px';
-gameOverContainer.style.fontWeight = 'bold';
-gameOverContainer.style.textAlign = 'center';
+  const gameOverMessage = document.createElement('div');
+  gameOverMessage.innerHTML = 'Game Over!';
+  gameOverMessage.style.marginBottom = '10px'; 
 
-const gameOverMessage = document.createElement('div');
-gameOverMessage.innerHTML = 'Game Over!';
-gameOverMessage.style.marginBottom = '10px'; 
+  const chosenWordMessage = document.createElement('div');
+  const chosenWord = 'The chosen word was: ' + CORRECT_GUESS;
+  chosenWordMessage.innerHTML = chosenWord;
 
-const chosenWordMessage = document.createElement('div');
-const chosenWord = 'The chosen word was: ' + CORRECT_GUESS;
-chosenWordMessage.innerHTML = chosenWord;
+  gameOverContainer.appendChild(gameOverMessage);
+  gameOverContainer.appendChild(chosenWordMessage);
+  document.body.appendChild(gameOverContainer);
 
-gameOverContainer.appendChild(gameOverMessage);
-gameOverContainer.appendChild(chosenWordMessage);
-document.body.appendChild(gameOverContainer);
+  submitButton.removeEventListener('click', checkForWinner);
+  playAgainButton.style.display = 'block';
+}
 
-submitButton.removeEventListener('click', checkForWinner);
+playAgainButton.addEventListener('click', () => {
+  resetGame();
+  playAgainButton.style.display = 'none';
+});
+
+function resetGame() {
+  guesses = 6;
+  currentRowIndex = 0;
+  
+  const randomWordIndex = Math.floor(Math.random() * wordArray.length);
+  CORRECT_GUESS = wordArray[randomWordIndex];
+  console.log(CORRECT_GUESS);
+  
+
+  correctArray = CORRECT_GUESS.split("");
+  
+  gridRows.forEach(row => {
+      row.forEach(cell => {
+          cell.innerText = "";
+          cell.className = 'word-cell';
+      });
+  });
+  
+  guessesElement.innerText = guesses;
+  
+  document.querySelector("input").value = "";
+  
+  const gameOverMessages = document.querySelectorAll('#gameOverContainer, div[style*="position: absolute"]');
+    gameOverMessages.forEach(message => message.remove());
+  
+  const winMessage = document.getElementById('winGameMessage');
+    if (winMessage) winMessage.remove();
+  
+  submitButton.addEventListener('click', checkForWinner);
 }
 
 function initWinCounter() {
@@ -284,10 +325,17 @@ function incrementWins() {
   updateWinDisplay(wins);
 }
 
+function eraseWins() {
+  let wins = localStorage.getItem('wordleWins');
+  wins = wins ? parseInt(wins) : 0;
+  wins = 0;
+  localStorage.setItem('wordleWins', wins);
+  updateWinDisplay(wins);
+}
+
 function updateWinDisplay(wins) {
   document.getElementById('win-count').textContent = wins;
 }
 
-submitButton.addEventListener('click', checkForWinner, incrementWins)
+submitButton.addEventListener('click', checkForWinner)
 localStorage.setItem('wordleWins', wins);
-
