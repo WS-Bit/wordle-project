@@ -14,19 +14,19 @@ body {
 }
 
 h1 {
-  margin: 20px 0; /* Adds space above and below the title */
-  text-align: center; /* Center the text of the title */
+  margin: 20px 0; 
+  text-align: center; 
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
-  border: 5px solid rgb(211, 185, 162);
-  background-color: rgb(242, 227, 214)
+  border: 5px solid rgb(232, 212, 194);
+  background-color: rgb(242, 227, 214);
 }
 
 .grid-wrapper {
-  flex-grow: 0.5; /* Allows the grid to take up the available space */
+  flex-grow: 0.5; 
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ensures the grid is centered horizontally */
+  width: 100%;
 }
 
 .grid {
@@ -38,7 +38,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; /* Adds space below the grid */
+  margin-bottom: 20px; 
 }
 
 #form {
@@ -46,7 +46,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; /* Adds space below the form */
+  margin-bottom: 20px; 
 }
 
 .text-input {
@@ -57,7 +57,7 @@ h1 {
   width: 70px;
   font-family: system-ui, sans-serif;
   background-color: rgb(255, 236, 219);
-  margin-right: 10px; /* Space between input and button */
+  margin-right: 10px; 
 }
 
 #submit-button {
@@ -76,7 +76,7 @@ h1 {
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
   width: 100px;
   height: 50px;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
 }
 
 #guesses {
@@ -84,7 +84,27 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* Evenly spaces guess boxes */
+  gap: 10px; 
+  margin-left: 5px;
+}
+
+#win-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: 50px;
+  margin-bottom: 40px;
+}
+
+#win-count {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   margin-left: 5px;
 }
 
