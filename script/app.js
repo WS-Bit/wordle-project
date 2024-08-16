@@ -154,7 +154,7 @@ const wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * wordArray.length);
 let CORRECT_GUESS = wordArray[randomWordIndex];
-console.log(CORRECT_GUESS);
+// console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button");
 const guessesElement = document.querySelector("#guesses");
