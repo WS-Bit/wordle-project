@@ -1,24 +1,29 @@
 console.log("java script is working")
 const wordGrid = document.querySelector(".grid");
 const wordCellCount = 5;
-const wordRows = [];
+const gridRows = [];
 const CORRECT_GUESS = "ATONE";
+const correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button")
 const guessesElement = document.querySelector("#guesses")
 let guesses = 6;
+let currentRowIndex = 0;
 
-function createWordRow() {
-  const wordRow = [];
+function createRow() {
+  const row = [];
   for (let i = 0; i < wordCellCount; i++) {
       const cell = document.createElement("div");
+      cell.setAttribute('data-index', i);
       wordGrid.appendChild(cell);
       cell.innerText = "";
-      wordRow.push(cell);
+      cell.classList.add('word-cell');
+      row.push(cell);
   }
-  wordRows.push(wordRow);
+  gridRows.push(row);
+  console.log(row)
 }
 for (let i = 0; i < 6; i++) {
-  createWordRow(i);
+  createRow(i);
 }
 
 function checkForWinner() {
@@ -28,15 +33,17 @@ function checkForWinner() {
     return;
   }
   const resultsArray = [];
-  const correctArray = CORRECT_GUESS.split("");
   const guessArray = GUESS.split("");
   const incorrectLetters = [];
   for (let i = 0; i < CORRECT_GUESS.length; i++) {
     if (correctArray[i] === guessArray[i]) {
       resultsArray.push(guessArray[i]);
+      console.log(resultsArray);
+      colorHandling();
     } else {
       resultsArray.push(false);
       incorrectLetters.push(guessArray[i]);
+      colorHandling();
     }
   }
 
@@ -65,13 +72,14 @@ function checkForWinner() {
     }
   } 
 
-  const correctButWrongPlace = wrongLettersFromCorrectArray
-    .map((letter) => {
+  const correctButWrongPlace = wrongLettersFromCorrectArray.map((letter) => {
       if (incorrectLetters.includes(letter)) {
         return letter;
       }
     })
     .filter((i) => i);
+    colorHandling();
+    currentRowIndex++;
 
   console.log({
     wrongLettersFromCorrectArray,
@@ -79,6 +87,21 @@ function checkForWinner() {
     correctButWrongPlace,
   });
 }
+
+function colorHandling() {
+  gridRows[currentRowIndex].forEach(cell => {
+    const index = cell.getAttribute('data-index');
+    
+    if (correctArray[index]) {
+        cell.classList.add('correct');
+    } else if (correctButWrongPlace[index]) {
+        cell.classList.add('misplaced');
+    } else {
+        cell.classList.add('incorrect');
+    }
+  });
+};
+
 
 function endGame() {
   gameActive = false;
