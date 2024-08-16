@@ -154,7 +154,7 @@ const wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * wordArray.length);
 let CORRECT_GUESS = wordArray[randomWordIndex];
-// console.log(CORRECT_GUESS);
+console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button");
 const guessesElement = document.querySelector("#guesses");
@@ -186,6 +186,11 @@ if (GUESS.length !== 5) {
     alert('Please enter a 5-letter word.');
     return;
   } 
+
+if (!wordArray.includes(GUESS)) {
+  alert('The word is not in the list of valid words.');
+  return;
+}
 
 const guessArray = GUESS.split("");
 const resultsArray = new Array(5).fill('incorrect');
@@ -228,8 +233,8 @@ function winGame() {
   incrementWins()
   gameActive = false;
   const gameOverMessage = document.createElement('div');
+  
   gameOverMessage.id = 'winGameMessage'
-
   gameOverMessage.innerHTML = 'You win!';
   gameOverMessage.style.position = 'absolute';
   gameOverMessage.style.top = '50%';
@@ -248,6 +253,7 @@ function loseGame() {
   gameActive = false;
   eraseWins();
   const gameOverContainer = document.createElement('div');
+
   gameOverContainer.id = 'gameOverContainer';
   gameOverContainer.style.position = 'absolute';
   gameOverContainer.style.top = '50%';
