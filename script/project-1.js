@@ -136,7 +136,7 @@ const GUESS = document.querySelector("input").value.toUpperCase();
 if (GUESS.length !== 5) {
     alert('Please enter a 5-letter word.');
     return;
-  }
+  } 
 
 const guessArray = GUESS.split("");
 const resultsArray = new Array(5).fill('incorrect');
@@ -201,7 +201,7 @@ gameOverMessage.style.position = 'absolute';
 gameOverMessage.style.top = '50%';
 gameOverMessage.style.left = '50%';
 gameOverMessage.style.transform = 'translate(-50%, -50%)';
-gameOverMessage.style.backgroundColor = 'rgb(255, 91, 91)';
+gameOverMessage.style.backgroundColor = 'rgb(99, 0, 191);';
 gameOverMessage.style.fontSize = '48px';
 gameOverMessage.style.padding = '20px';
 gameOverMessage.style.fontWeight = 'bold'; 
