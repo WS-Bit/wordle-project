@@ -1,204 +1,228 @@
-function init() {
-    const wordGrid = document.querySelector(".grid");
-    const wordCellCount = 5;
-    const wordRows = [];
-    const correctLetters = [];
-    console.log(wordRows)
-
-    //! Game state
-
-    let gameActive = true;
-    let guesses = 6;
-    let currentWord = 'ATONE'
-
-    //! Basic validation
-
-    //? empty field error
-
-    //! Element grabbing
-
-    const remiainingGuessesElement = document.querySelector('#guesses')
-
-    //! Functions
-
-    function createWordRow() {
-        const wordRow = [];
-        for (let i = 0; i < wordCellCount; i++) {
-            const cell = document.createElement("div");
-            wordGrid.appendChild(cell);
-            cell.innerText = "";
-            wordRow.push(cell);
-        }
-        wordRows.push(wordRow);
-    }
-    for (let i = 0; i < 6; i++) {
-        createWordRow(i);
-    }
-    
-    function handleSubmit(event) {
-      event.preventDefault();
-      const guess = document.querySelector(".text-input").value;
-      if (!gameActive) return;
-      if (guess.length !== 5) {
-          alert('Please enter a 5-letter word.');
-          return;
-        }
-      console.log(guesses)
-  
-      if (guess.length !== 5) {
-          alert('Please enter a 5-letter word.');
-          return;
-        }
-        console.log("Your guess of:", guess);
-
-        const correctWord = currentWord.split('');
-        
-      console.log(remiainingGuessesElement.innerText)
-
-      if (remiainingGuessesElement.innerText === '5' && guess === currentWord) {
-          rowTwoColours();
-          console.log("You win!");
-      } 
-      else if (guess === currentWord) {
-            rowOneColours();
-            console.log("You win!");
-      } 
-      
-      else if (guess.slice(-3) === correctWord.slice(-3).join('')) {
-          guesses--
-          console.log("Last three letters are correct!");
-      }
-
-      else if (guess.slice(-2) === correctWord.slice(-2).join('')) {
-          guesses--
-          console.log("Last two letters are correct!");
-      } 
-
-      else if (guess.startsWith(correctWord.slice(0, 4).join('')) && guess[4] !== correctWord[4]) {
-          guesses--
-          console.log("First four letters are correct, fifth letter is incorrect!");
-      } 
-      
-      else if (guess[0] === correctWord[0] && guess[1] === correctWord[1] && guess[2] === correctWord[2] && guess[4] === correctWord[4] && guess[3] !== correctWord[3]) {
-          guesses--
-          console.log("First, second, third, and fifth letters are correct, fourth letter is incorrect!");
-      } 
-      
-      else if (guess.startsWith(correctWord.slice(0, 3).join('')) && guess[3] !== correctWord[3]) {
-          guesses--
-          console.log("First three letters correct, fourth and fifth letters are incorrect!");
-      } 
-      
-      else if (guess.startsWith(correctWord.slice(0, 3).join('')) && guess.endsWith(correctWord.slice(3).join(''))) {
-          guesses--
-          console.log("First three, fourth, and fifth letters are correct!");
-      } 
-      
-      else if (guess.startsWith(correctWord.slice(0, 3).join(''))) {
-          guesses--
-          console.log("First three letters correct!");
-      } 
-      
-      else if (guess[0] === correctWord[0] && guess[1] === correctWord[1] && guess[3] === correctWord[3] && guess[4] !== correctWord[4]) {
-          guesses--
-          console.log("First two and fourth letters correct!");
-      } 
-      
-      else if (guess.startsWith(correctWord.slice(0, 2).join('')) && guess[2] !== correctWord[2]) {
-          guesses--
-          console.log("First two letters correct!");
-      } 
-      
-      else if (guess[0] === correctWord[0] && guess[2] === correctWord[2] && guess[4] === correctWord[4]) {
-          guesses--
-          console.log("First, third and fifth letters correct!");
-      } 
-
-      else if (guess[0] === correctWord[0] && guess[4] === correctWord[4]) {
-          guesses--
-          console.log("First and fifth letters correct!");
-      } 
-
-      else if (guess[2] === correctWord[2] && guess[4] === correctWord[4]) {
-          guesses--
-          console.log("Third and fifth letters correct!");
-      } 
-      
-      else if (guess[0] === correctWord[0]) {
-          guesses--
-          console.log("First letter correct!");
-      } 
-      
-      else if (guess[1] === correctWord[1]) {
-          guesses--
-          console.log("Second letter correct!");
-      } 
-      
-      else if (guess[2] === correctWord[2]) {
-          guesses--
-          console.log("Third letter correct!");
-      } 
-      
-      else if (guess[3] === correctWord[3]) {
-          guesses--
-          console.log("Fourth letter correct!");
-      } 
-      
-      else if (guess[4] === correctWord[4]) {
-          guesses--
-          console.log("Fifth letter correct!");
-      } 
-      
-      else {
-          guesses--
-          console.log("No letters are correct!");
-      }
-
-      remiainingGuessesElement.innerText = guesses
-      
-  
-        
-      //! FUNCTIONS FOR COLOUR ADDED TO EACH CELL
-      
-      function rowOneColours() {
-          if (remiainingGuessesElement.innerText !== '6'); {
-              if (guess === currentWord) {
-                  for (let i = 0; i < wordRows[0].length; i++) {
-                      wordRows[0][i].classList.add('correctLetter');
-                  }
-              }
-          }
-      }
-
-      function rowTwoColours() {
-          if (remiainingGuessesElement.innerText === '5') {
-              if (guess === currentWord) {
-                  console.log("this was called")
-                  for (let i = 0; i < wordRows[1].length; i++) {
-                      wordRows[1][i].classList.add('correctLetter');
-                  }
-              }
-          }
-      }
-
-  
 
 
+console.log("java script is working")
+const wordArray =  [
+'WHICH', 'THERE', 'THEIR', 'ABOUT', 'WOULD', 'THESE', 'OTHER', 'WORDS', 'COULD', 'WRITE',
+'FIRST', 'WATER', 'AFTER', 'WHERE', 'RIGHT', 'THINK', 'THREE', 'YEARS', 'PLACE', 'SOUND',
+'GREAT', 'AGAIN', 'STILL', 'EVERY', 'SMALL', 'FOUND', 'THOSE', 'NEVER', 'UNDER', 'MIGHT',
+'WHILE', 'HOUSE', 'WORLD', 'BELOW', 'ASKED', 'GOING', 'LARGE', 'UNTIL', 'ALONG', 'SHALL',
+'BEING', 'OFTEN', 'EARTH', 'BEGAN', 'SINCE', 'STUDY', 'NIGHT', 'LIGHT', 'ABOVE', 'PAPER',
+'PARTS', 'YOUNG', 'STORY', 'POINT', 'TIMES', 'HEARD', 'WHOLE', 'WHITE', 'GIVEN', 'MEANS',
+'MUSIC', 'MILES', 'THING', 'TODAY', 'LATER', 'USING', 'MONEY', 'LINES', 'ORDER', 'GROUP',
+'AMONG', 'LEARN', 'KNOWN', 'SPACE', 'TABLE', 'EARLY', 'TREES', 'SHORT', 'HANDS', 'STATE',
+'BLACK', 'SHOWN', 'STOOD', 'FRONT', 'VOICE', 'KINDS', 'MAKES', 'COMES', 'CLOSE', 'POWER',
+'LIVED', 'VOWEL', 'TAKEN', 'BUILT', 'HEART', 'READY', 'QUITE', 'CLASS', 'BRING', 'ROUND',
+'HORSE', 'SHOWS', 'PIECE', 'GREEN', 'STAND', 'BIRDS', 'START', 'RIVER', 'TRIED', 'LEAST',
+'FIELD', 'WHOSE', 'GIRLS', 'LEAVE', 'ADDED', 'COLOR', 'THIRD', 'HOURS', 'MOVED', 'PLANT',
+'DOING', 'NAMES', 'FORMS', 'HEAVY', 'IDEAS', 'CRIED', 'CHECK', 'FLOOR', 'BEGIN', 'WOMAN',
+'ALONE', 'PLANE', 'SPELL', 'WATCH', 'CARRY', 'WROTE', 'CLEAR', 'NAMED', 'BOOKS', 'CHILD',
+'GLASS', 'HUMAN', 'TAKES', 'PARTY', 'BUILD', 'SEEMS', 'BLOOD', 'SIDES', 'SEVEN', 'MOUTH',
+'SOLVE', 'NORTH', 'VALUE', 'DEATH', 'MAYBE', 'HAPPY', 'TELLS', 'GIVES', 'LOOKS', 'SHAPE',
+'LIVES', 'STEPS', 'AREAS', 'SENSE', 'SPEAK', 'FORCE', 'OCEAN', 'SPEED', 'WOMEN', 'METAL',
+'SOUTH', 'GRASS', 'SCALE', 'CELLS', 'LOWER', 'SLEEP', 'WRONG', 'PAGES', 'SHIPS', 'NEEDS',
+'ROCKS', 'EIGHT', 'MAJOR', 'LEVEL', 'TOTAL', 'AHEAD', 'REACH', 'STARS', 'STORE', 'SIGHT',
+'TERMS', 'CATCH', 'WORKS', 'BOARD', 'COVER', 'SONGS', 'EQUAL', 'STONE', 'WAVES', 'GUESS',
+'DANCE', 'SPOKE', 'BREAK', 'CAUSE', 'RADIO', 'WEEKS', 'LANDS', 'BASIC', 'LIKED', 'TRADE',
+'FRESH', 'FINAL', 'FIGHT', 'MEANT', 'DRIVE', 'SPENT', 'LOCAL', 'WAXES', 'KNOWS', 'TRAIN',
+'BREAD', 'HOMES', 'TEETH', 'COAST', 'THICK', 'BROWN', 'CLEAN', 'QUIET', 'SUGAR', 'FACTS',
+'STEEL', 'FORTH', 'RULES', 'NOTES', 'UNITS', 'PEACE', 'MONTH', 'VERBS', 'SEEDS', 'HELPS',
+'SHARP', 'VISIT', 'WOODS', 'CHIEF', 'WALLS', 'CROSS', 'WINGS', 'GROWN', 'CASES', 'FOODS',
+'CROPS', 'FRUIT', 'STICK', 'WANTS', 'STAGE', 'SHEEP', 'NOUNS', 'PLAIN', 'DRINK', 'BONES',
+'APART', 'TURNS', 'MOVES', 'TOUCH', 'ANGLE', 'BASED', 'RANGE', 'MARKS', 'TIRED', 'OLDER',
+'FARMS', 'SPEND', 'SHOES', 'GOODS', 'CHAIR', 'TWICE', 'CENTS', 'EMPTY', 'ALIKE', 'STYLE',
+'BROKE', 'PAIRS', 'COUNT', 'ENJOY', 'SCORE', 'SHORE', 'ROOTS', 'PAINT', 'HEADS', 'SHOOK',
+'SERVE', 'ANGRY', 'CROWD', 'WHEEL', 'QUICK', 'DRESS', 'SHARE', 'ALIVE', 'NOISE', 'SOLID',
+'CLOTH', 'SIGNS', 'HILLS', 'TYPES', 'DRAWN', 'WORTH', 'TRUCK', 'PIANO', 'UPPER', 'LOVED',
+'USUAL', 'FACES', 'DROVE', 'CABIN', 'BOATS', 'TOWNS', 'PROUD', 'COURT', 'MODEL', 'PRIME',
+'FIFTY', 'PLANS', 'YARDS', 'PROVE', 'TOOLS', 'PRICE', 'SHEET', 'SMELL', 'BOXES', 'RAISE',
+'MATCH', 'TRUTH', 'ROADS', 'THREW', 'ENEMY', 'LUNCH', 'CHART', 'SCENE', 'GRAPH', 'DOUBT',
+'GUIDE', 'WINDS', 'BLOCK', 'GRAIN', 'SMOKE', 'MIXED', 'GAMES', 'WAGON', 'SWEET', 'TOPIC',
+'EXTRA', 'PLATE', 'TITLE', 'KNIFE', 'FENCE', 'FALLS', 'CLOUD', 'WHEAT', 'PLAYS', 'ENTER',
+'BROAD', 'STEAM', 'ATOMS', 'PRESS', 'LYING', 'BASIS', 'CLOCK', 'TASTE', 'GROWS', 'THANK',
+'STORM', 'AGREE', 'BRAIN', 'TRACK', 'SMILE', 'FUNNY', 'BEACH', 'STOCK', 'HURRY', 'SAVED',
+'SORRY', 'GIANT', 'TRAIL', 'OFFER', 'OUGHT', 'ROUGH', 'DAILY', 'AVOID', 'KEEPS', 'THROW',
+'ALLOW', 'CREAM', 'LAUGH', 'EDGES', 'TEACH', 'FRAME', 'BELLS', 'DREAM', 'MAGIC', 'OCCUR',
+'ENDED', 'CHORD', 'FALSE', 'SKILL', 'HOLES', 'DOZEN', 'BRAVE', 'APPLE', 'CLIMB', 'OUTER',
+'PITCH', 'RULER', 'HOLDS', 'FIXED', 'COSTS', 'CALLS', 'BLANK', 'STAFF', 'LABOR', 'EATEN',
+'YOUTH', 'TONES', 'HONOR', 'GLOBE', 'GASES', 'DOORS', 'POLES', 'LOOSE', 'APPLY', 'TEARS',
+'EXACT', 'BRUSH', 'CHEST', 'LAYER', 'WHALE', 'MINOR', 'FAITH', 'TESTS', 'JUDGE', 'ITEMS',
+'WORRY', 'WASTE', 'HOPED', 'STRIP', 'BEGUN', 'ASIDE', 'LAKES', 'BOUND', 'DEPTH', 'CANDY',
+'EVENT', 'WORSE', 'AWARE', 'SHELL', 'ROOMS', 'RANCH', 'IMAGE', 'SNAKE', 'ALOUD', 'DRIED',
+'LIKES', 'MOTOR', 'POUND', 'KNEES', 'REFER', 'FULLY', 'CHAIN', 'SHIRT', 'FLOUR', 'DROPS',
+'SPITE', 'ORBIT', 'BANKS', 'SHOOT', 'CURVE', 'TRIBE', 'TIGHT', 'BLIND', 'SLEPT', 'SHADE',
+'CLAIM', 'FLIES', 'THEME', 'QUEEN', 'FIFTH', 'UNION', 'HENCE', 'STRAW', 'ENTRY', 'ISSUE',
+'BIRTH', 'FEELS', 'ANGER', 'BRIEF', 'RHYME', 'GLORY', 'GUARD', 'FLOWS', 'FLESH', 'OWNED',
+'TRICK', 'YOURS', 'SIZES', 'NOTED', 'WIDTH', 'BURST', 'ROUTE', 'LUNGS', 'UNCLE', 'BEARS',
+'ROYAL', 'KINGS', 'FORTY', 'TRIAL', 'CARDS', 'BRASS', 'OPERA', 'CHOSE', 'OWNER', 'VAPOR',
+'BEATS', 'MOUSE', 'TOUGH', 'WIRES', 'METER', 'TOWER', 'FINDS', 'INNER', 'STUCK', 'ARROW',
+'POEMS', 'LABEL', 'SWING', 'SOLAR', 'TRULY', 'TENSE', 'BEANS', 'SPLIT', 'RISES', 'WEIGH',
+'HOTEL', 'STEMS', 'PRIDE', 'SWUNG', 'GRADE', 'DIGIT', 'BADLY', 'BOOTS', 'PILOT', 'SALES',
+'SWEPT', 'LUCKY', 'PRIZE', 'STOVE', 'TUBES', 'ACRES', 'WOUND', 'STEEP', 'SLIDE', 'TRUNK',
+'ERROR', 'PORCH', 'SLAVE', 'EXIST', 'FACED', 'MINES', 'MARRY', 'JUICE', 'RACED', 'WAVED',
+'GOOSE', 'TRUST', 'FEWER', 'FAVOR', 'MILLS', 'VIEWS', 'JOINT', 'EAGER', 'SPOTS', 'BLEND',
+'RINGS', 'ADULT', 'INDEX', 'NAILS', 'HORNS', 'BALLS', 'FLAME', 'RATES', 'DRILL', 'TRACE',
+'SKINS', 'WAXED', 'SEATS', 'STUFF', 'RATIO', 'MINDS', 'DIRTY', 'SILLY', 'COINS', 'HELLO',
+'TRIPS', 'LEADS', 'RIFLE', 'HOPES', 'BASES', 'SHINE', 'BENCH', 'MORAL', 'FIRES', 'MEALS',
+'SHAKE', 'SHOPS', 'CYCLE', 'MOVIE', 'SLOPE', 'CANOE', 'TEAMS', 'FOLKS', 'FIRED', 'BANDS',
+'THUMB', 'SHOUT', 'CANAL', 'HABIT', 'REPLY', 'RULED', 'FEVER', 'CRUST', 'SHELF', 'WALKS',
+'MIDST', 'CRACK', 'PRINT', 'TALES', 'COACH', 'STIFF', 'FLOOD', 'VERSE', 'AWAKE', 'ROCKY',
+'MARCH', 'FAULT', 'SWIFT', 'FAINT', 'CIVIL', 'GHOST', 'FEAST', 'BLADE', 'LIMIT', 'GERMS',
+'READS', 'DUCKS', 'DAIRY', 'WORST', 'GIFTS', 'LISTS', 'STOPS', 'RAPID', 'BRICK', 'CLAWS',
+'BEADS', 'BEAST', 'SKIRT', 'CAKES', 'LIONS', 'FROGS', 'TRIES', 'NERVE', 'GRAND', 'ARMED',
+'TREAT', 'HONEY', 'MOIST', 'LEGAL', 'PENNY', 'CROWN', 'SHOCK', 'TAXES', 'SIXTY', 'ALTAR',
+'PULLS', 'SPORT', 'DRUMS', 'TALKS', 'DYING', 'DATES', 'DRANK', 'BLOWS', 'LEVER', 'WAGES',
+'PROOF', 'DRUGS', 'TANKS', 'SINGS', 'TAILS', 'PAUSE', 'HERDS', 'AROSE', 'HATED', 'CLUES',
+'NOVEL', 'SHAME', 'BURNT', 'RACES', 'FLASH', 'WEARY', 'HEELS', 'TOKEN', 'COATS', 'SPARE',
+'SHINY', 'ALARM', 'DIMES', 'SIXTH', 'CLERK', 'MERCY', 'SUNNY', 'GUEST', 'FLOAT', 'SHONE',
+'PIPES', 'WORMS', 'BILLS', 'SWEAT', 'SUITS', 'SMART', 'UPSET', 'RAINS', 'SANDY', 'RAINY',
+'PARKS', 'SADLY', 'FANCY', 'RIDER', 'UNITY', 'BUNCH', 'ROLLS', 'CRASH', 'CRAFT', 'NEWLY',
+'GATES', 'HATCH', 'PATHS', 'FUNDS', 'WIDER', 'GRACE', 'GRAVE', 'TIDES', 'ADMIT', 'SHIFT',
+'SAILS', 'PUPIL', 'TIGER', 'ANGEL', 'CRUEL', 'AGENT', 'DRAMA', 'URGED', 'PATCH', 'NESTS',
+'VITAL', 'SWORD', 'BLAME', 'WEEDS', 'SCREW', 'VOCAL', 'BACON', 'CHALK', 'CARGO', 'CRAZY',
+'ACTED', 'GOATS', 'ARISE', 'WITCH', 'LOVES', 'QUEER', 'DWELL', 'BACKS', 'ROPES', 'SHOTS',
+'MERRY', 'PHONE', 'CHEEK', 'PEAKS', 'IDEAL', 'BEARD', 'EAGLE', 'CREEK', 'CRIES', 'ASHES',
+'STALL', 'YIELD', 'MAYOR', 'OPENS', 'INPUT', 'FLEET', 'TOOTH', 'CUBIC', 'WIVES', 'BURNS',
+'POETS', 'APRON', 'SPEAR', 'ORGAN', 'CLIFF', 'STAMP', 'PASTE', 'RURAL', 'BAKED', 'CHASE',
+'SLICE', 'SLANT', 'KNOCK', 'NOISY', 'SORTS', 'STAYS', 'WIPED', 'BLOWN', 'PILED', 'CLUBS',
+'CHEER', 'WIDOW', 'TWIST', 'TENTH', 'HIDES', 'COMMA', 'SWEEP', 'SPOON', 'STERN', 'CREPT',
+'MAPLE', 'DEEDS', 'RIDES', 'MUDDY', 'CRIME', 'JELLY', 'RIDGE', 'DRIFT', 'DUSTY', 'DEVIL',
+'TEMPO', 'HUMOR', 'SENDS', 'STEAL', 'TENTS', 'WAIST', 'ROSES', 'REIGN', 'NOBLE', 'CHEAP',
+'DENSE', 'LINEN', 'GEESE', 'WOVEN', 'POSTS', 'HIRED', 'WRATH', 'SALAD', 'BOWED', 'TIRES',
+'SHARK', 'BELTS', 'GRASP', 'BLAST', 'POLAR', 'FUNGI', 'TENDS', 'PEARL', 'LOADS', 'JOKES',
+'VEINS', 'FROST', 'HEARS', 'LOSES', 'HOSTS', 'DIVER', 'PHASE', 'TOADS', 'ALERT', 'TASKS',
+'SEAMS', 'CORAL', 'FOCUS', 'NAKED', 'PUPPY', 'JUMPS', 'SPOIL', 'QUART', 'MACRO', 'FEARS',
+'FLUNG', 'SPARK', 'VIVID', 'BROOK', 'STEER', 'SPRAY', 'DECAY', 'PORTS', 'SOCKS', 'URBAN',
+'GOALS', 'GRANT', 'MINUS', 'FILMS', 'TUNES', 'SHAFT', 'FIRMS', 'SKIES', 'BRIDE', 'WRECK',
+'FLOCK', 'STARE', 'HOBBY', 'BONDS', 'DARED', 'FADED', 'THIEF', 'CRUDE', 'PANTS', 'FLUTE',
+'VOTES', 'TONAL', 'RADAR', 'WELLS', 'SKULL', 'HAIRS', 'ARGUE', 'WEARS', 'DOLLS', 'VOTED',
+'CAVES', 'CARED', 'BROOM', 'SCENT', 'PANEL', 'FAIRY', 'OLIVE', 'BENDS', 'PRISM', 'LAMPS',
+'CABLE', 'PEACH', 'RUINS', 'RALLY', 'SCHWA', 'LAMBS', 'SELLS', 'COOLS', 'DRAFT', 'CHARM',
+'LIMBS', 'BRAKE', 'GAZED', 'CUBES', 'DELAY', 'BEAMS', 'FETCH', 'RANKS', 'ARRAY', 'HARSH',
+'CAMEL', 'VINES', 'PICKS', 'NAVAL', 'PURSE', 'RIGID', 'CRAWL', 'TOAST', 'SOILS', 'SAUCE',
+'BASIN', 'PONDS', 'TWINS', 'WRIST', 'FLUID', 'POOLS', 'BRAND', 'STALK', 'ROBOT', 'REEDS',
+'HOOFS', 'BUSES', 'SHEER', 'GRIEF', 'BLOOM', 'DWELT', 'MELTS', 'RISEN', 'FLAGS', 'KNELT',
+'FIBER', 'ROOFS', 'FREED', 'ARMOR', 'PILES', 'AIMED', 'ALGAE', 'TWIGS', 'LEMON', 'ATONE'
+];
+const wordGrid = document.querySelector(".grid");
+const wordCellCount = 5;
+const gridRows = [];
+const randomWordIndex = Math.floor(Math.random() * wordArray.length);
+const CORRECT_GUESS = wordArray[randomWordIndex];
+console.log(CORRECT_GUESS);
+const correctArray = CORRECT_GUESS.split("");
+const submitButton = document.querySelector("#submit-button");
+const guessesElement = document.querySelector("#guesses");
+let guesses = 6;
+let currentRowIndex = 0;
 
-  //! END OF FORM CAPTURE AND ANALYSIS
-  }
-
-    //! Capture form data and analyse
-    document.querySelector("#submit-button").addEventListener("click", handleSubmit);
-    
-    function checkForLetters() {
-        // go through users guess, letter by letter see if the first letter is in it. (.includes/.contains) push letters in a new array, scan for the correct letters, 
-        // two words, for loop, two arrays, correctLetters correctWordsWrongPos , 
-        // function check for winner, seperate letters and push into arrays, if correctLetters = 5 run win condition. 
-        // clwp, push in with the id of
-    }
-
+function createRow() {
+const row = [];
+for (let i = 0; i < wordCellCount; i++) {
+    const cell = document.createElement("div");
+    cell.setAttribute('data-index', i);
+    wordGrid.appendChild(cell);
+    cell.innerText = "";
+    cell.classList.add('word-cell');
+    row.push(cell);
+}
+gridRows.push(row);
+}
+for (let i = 0; i < 6; i++) {
+createRow(i);
 }
 
-window.addEventListener("DOMContentLoaded", init);
+function checkForWinner() {
+  const GUESS = document.querySelector("input").value.toUpperCase();
+if (GUESS.length !== 5) {
+    alert('Please enter a 5-letter word.');
+    return;
+  } 
+
+const guessArray = GUESS.split("");
+const resultsArray = new Array(5).fill('incorrect');
+
+for (let i = 0; i < CORRECT_GUESS.length; i++) {
+    if (correctArray[i] === guessArray[i]) {
+        resultsArray[i] = 'correct';
+    }
+  }
+
+for (let i = 0; i < CORRECT_GUESS.length; i++) {
+    if (resultsArray[i] !== 'correct' && correctArray.includes(guessArray[i])) {
+        resultsArray[i] = 'misplaced';
+    }
+  }
+
+colourHandling(guessArray, resultsArray);
+if (resultsArray.some((result) => result !== 'correct')) {
+    guesses--;
+    guessesElement.innerText = guesses;
+    if (guesses === 0) {
+        loseGame()
+    }
+  }
+currentRowIndex++;
+
+if (GUESS === CORRECT_GUESS) {
+  winGame();
+  }
+}
+
+function colourHandling(guessArray, resultsArray) {
+gridRows[currentRowIndex].forEach((cell, index) => {
+    cell.innerText = guessArray[index];
+    cell.classList.add(resultsArray[index]);
+});
+}
+
+function winGame() {
+gameActive = false;
+const gameOverMessage = document.createElement('div');
+
+gameOverMessage.innerHTML = 'You win!';
+gameOverMessage.style.position = 'absolute';
+gameOverMessage.style.top = '50%';
+gameOverMessage.style.left = '50%';
+gameOverMessage.style.transform = 'translate(-50%, -50%)';
+gameOverMessage.style.backgroundColor = 'rgb(113, 255, 168)';
+gameOverMessage.style.fontSize = '48px';
+gameOverMessage.style.padding = '20px';
+gameOverMessage.style.fontWeight = 'bold'; 
+document.body.appendChild(gameOverMessage);
+submitButton.removeEventListener('click', checkForWinner)
+}
+
+function loseGame() {
+gameActive = false;
+
+const gameOverContainer = document.createElement('div');
+gameOverContainer.id = 'gameOverContainer';
+gameOverContainer.style.position = 'absolute';
+gameOverContainer.style.top = '50%';
+gameOverContainer.style.left = '50%';
+gameOverContainer.style.transform = 'translate(-50%, -50%)';
+gameOverContainer.style.backgroundColor = 'rgb(214, 165, 250)';
+gameOverContainer.style.fontSize = '28px';
+gameOverContainer.style.padding = '20px';
+gameOverContainer.style.fontWeight = 'bold';
+gameOverContainer.style.textAlign = 'center';
+
+const gameOverMessage = document.createElement('div');
+gameOverMessage.innerHTML = 'Game Over!';
+gameOverMessage.style.marginBottom = '10px'; 
+
+const chosenWordMessage = document.createElement('div');
+const chosenWord = 'The chosen word was: ' + CORRECT_GUESS;
+chosenWordMessage.innerHTML = chosenWord;
+
+gameOverContainer.appendChild(gameOverMessage);
+gameOverContainer.appendChild(chosenWordMessage);
+document.body.appendChild(gameOverContainer);
+
+submitButton.removeEventListener('click', checkForWinner);
+}
+
+
+submitButton.addEventListener('click', checkForWinner)
+
 
