@@ -1,193 +1,215 @@
+
+
 console.log("java script is working")
+const wordArray =  [
+'WHICH', 'THERE', 'THEIR', 'ABOUT', 'WOULD', 'THESE', 'OTHER', 'WORDS', 'COULD', 'WRITE',
+'FIRST', 'WATER', 'AFTER', 'WHERE', 'RIGHT', 'THINK', 'THREE', 'YEARS', 'PLACE', 'SOUND',
+'GREAT', 'AGAIN', 'STILL', 'EVERY', 'SMALL', 'FOUND', 'THOSE', 'NEVER', 'UNDER', 'MIGHT',
+'WHILE', 'HOUSE', 'WORLD', 'BELOW', 'ASKED', 'GOING', 'LARGE', 'UNTIL', 'ALONG', 'SHALL',
+'BEING', 'OFTEN', 'EARTH', 'BEGAN', 'SINCE', 'STUDY', 'NIGHT', 'LIGHT', 'ABOVE', 'PAPER',
+'PARTS', 'YOUNG', 'STORY', 'POINT', 'TIMES', 'HEARD', 'WHOLE', 'WHITE', 'GIVEN', 'MEANS',
+'MUSIC', 'MILES', 'THING', 'TODAY', 'LATER', 'USING', 'MONEY', 'LINES', 'ORDER', 'GROUP',
+'AMONG', 'LEARN', 'KNOWN', 'SPACE', 'TABLE', 'EARLY', 'TREES', 'SHORT', 'HANDS', 'STATE',
+'BLACK', 'SHOWN', 'STOOD', 'FRONT', 'VOICE', 'KINDS', 'MAKES', 'COMES', 'CLOSE', 'POWER',
+'LIVED', 'VOWEL', 'TAKEN', 'BUILT', 'HEART', 'READY', 'QUITE', 'CLASS', 'BRING', 'ROUND',
+'HORSE', 'SHOWS', 'PIECE', 'GREEN', 'STAND', 'BIRDS', 'START', 'RIVER', 'TRIED', 'LEAST',
+'FIELD', 'WHOSE', 'GIRLS', 'LEAVE', 'ADDED', 'COLOR', 'THIRD', 'HOURS', 'MOVED', 'PLANT',
+'DOING', 'NAMES', 'FORMS', 'HEAVY', 'IDEAS', 'CRIED', 'CHECK', 'FLOOR', 'BEGIN', 'WOMAN',
+'ALONE', 'PLANE', 'SPELL', 'WATCH', 'CARRY', 'WROTE', 'CLEAR', 'NAMED', 'BOOKS', 'CHILD',
+'GLASS', 'HUMAN', 'TAKES', 'PARTY', 'BUILD', 'SEEMS', 'BLOOD', 'SIDES', 'SEVEN', 'MOUTH',
+'SOLVE', 'NORTH', 'VALUE', 'DEATH', 'MAYBE', 'HAPPY', 'TELLS', 'GIVES', 'LOOKS', 'SHAPE',
+'LIVES', 'STEPS', 'AREAS', 'SENSE', 'SPEAK', 'FORCE', 'OCEAN', 'SPEED', 'WOMEN', 'METAL',
+'SOUTH', 'GRASS', 'SCALE', 'CELLS', 'LOWER', 'SLEEP', 'WRONG', 'PAGES', 'SHIPS', 'NEEDS',
+'ROCKS', 'EIGHT', 'MAJOR', 'LEVEL', 'TOTAL', 'AHEAD', 'REACH', 'STARS', 'STORE', 'SIGHT',
+'TERMS', 'CATCH', 'WORKS', 'BOARD', 'COVER', 'SONGS', 'EQUAL', 'STONE', 'WAVES', 'GUESS',
+'DANCE', 'SPOKE', 'BREAK', 'CAUSE', 'RADIO', 'WEEKS', 'LANDS', 'BASIC', 'LIKED', 'TRADE',
+'FRESH', 'FINAL', 'FIGHT', 'MEANT', 'DRIVE', 'SPENT', 'LOCAL', 'WAXES', 'KNOWS', 'TRAIN',
+'BREAD', 'HOMES', 'TEETH', 'COAST', 'THICK', 'BROWN', 'CLEAN', 'QUIET', 'SUGAR', 'FACTS',
+'STEEL', 'FORTH', 'RULES', 'NOTES', 'UNITS', 'PEACE', 'MONTH', 'VERBS', 'SEEDS', 'HELPS',
+'SHARP', 'VISIT', 'WOODS', 'CHIEF', 'WALLS', 'CROSS', 'WINGS', 'GROWN', 'CASES', 'FOODS',
+'CROPS', 'FRUIT', 'STICK', 'WANTS', 'STAGE', 'SHEEP', 'NOUNS', 'PLAIN', 'DRINK', 'BONES',
+'APART', 'TURNS', 'MOVES', 'TOUCH', 'ANGLE', 'BASED', 'RANGE', 'MARKS', 'TIRED', 'OLDER',
+'FARMS', 'SPEND', 'SHOES', 'GOODS', 'CHAIR', 'TWICE', 'CENTS', 'EMPTY', 'ALIKE', 'STYLE',
+'BROKE', 'PAIRS', 'COUNT', 'ENJOY', 'SCORE', 'SHORE', 'ROOTS', 'PAINT', 'HEADS', 'SHOOK',
+'SERVE', 'ANGRY', 'CROWD', 'WHEEL', 'QUICK', 'DRESS', 'SHARE', 'ALIVE', 'NOISE', 'SOLID',
+'CLOTH', 'SIGNS', 'HILLS', 'TYPES', 'DRAWN', 'WORTH', 'TRUCK', 'PIANO', 'UPPER', 'LOVED',
+'USUAL', 'FACES', 'DROVE', 'CABIN', 'BOATS', 'TOWNS', 'PROUD', 'COURT', 'MODEL', 'PRIME',
+'FIFTY', 'PLANS', 'YARDS', 'PROVE', 'TOOLS', 'PRICE', 'SHEET', 'SMELL', 'BOXES', 'RAISE',
+'MATCH', 'TRUTH', 'ROADS', 'THREW', 'ENEMY', 'LUNCH', 'CHART', 'SCENE', 'GRAPH', 'DOUBT',
+'GUIDE', 'WINDS', 'BLOCK', 'GRAIN', 'SMOKE', 'MIXED', 'GAMES', 'WAGON', 'SWEET', 'TOPIC',
+'EXTRA', 'PLATE', 'TITLE', 'KNIFE', 'FENCE', 'FALLS', 'CLOUD', 'WHEAT', 'PLAYS', 'ENTER',
+'BROAD', 'STEAM', 'ATOMS', 'PRESS', 'LYING', 'BASIS', 'CLOCK', 'TASTE', 'GROWS', 'THANK',
+'STORM', 'AGREE', 'BRAIN', 'TRACK', 'SMILE', 'FUNNY', 'BEACH', 'STOCK', 'HURRY', 'SAVED',
+'SORRY', 'GIANT', 'TRAIL', 'OFFER', 'OUGHT', 'ROUGH', 'DAILY', 'AVOID', 'KEEPS', 'THROW',
+'ALLOW', 'CREAM', 'LAUGH', 'EDGES', 'TEACH', 'FRAME', 'BELLS', 'DREAM', 'MAGIC', 'OCCUR',
+'ENDED', 'CHORD', 'FALSE', 'SKILL', 'HOLES', 'DOZEN', 'BRAVE', 'APPLE', 'CLIMB', 'OUTER',
+'PITCH', 'RULER', 'HOLDS', 'FIXED', 'COSTS', 'CALLS', 'BLANK', 'STAFF', 'LABOR', 'EATEN',
+'YOUTH', 'TONES', 'HONOR', 'GLOBE', 'GASES', 'DOORS', 'POLES', 'LOOSE', 'APPLY', 'TEARS',
+'EXACT', 'BRUSH', 'CHEST', 'LAYER', 'WHALE', 'MINOR', 'FAITH', 'TESTS', 'JUDGE', 'ITEMS',
+'WORRY', 'WASTE', 'HOPED', 'STRIP', 'BEGUN', 'ASIDE', 'LAKES', 'BOUND', 'DEPTH', 'CANDY',
+'EVENT', 'WORSE', 'AWARE', 'SHELL', 'ROOMS', 'RANCH', 'IMAGE', 'SNAKE', 'ALOUD', 'DRIED',
+'LIKES', 'MOTOR', 'POUND', 'KNEES', 'REFER', 'FULLY', 'CHAIN', 'SHIRT', 'FLOUR', 'DROPS',
+'SPITE', 'ORBIT', 'BANKS', 'SHOOT', 'CURVE', 'TRIBE', 'TIGHT', 'BLIND', 'SLEPT', 'SHADE',
+'CLAIM', 'FLIES', 'THEME', 'QUEEN', 'FIFTH', 'UNION', 'HENCE', 'STRAW', 'ENTRY', 'ISSUE',
+'BIRTH', 'FEELS', 'ANGER', 'BRIEF', 'RHYME', 'GLORY', 'GUARD', 'FLOWS', 'FLESH', 'OWNED',
+'TRICK', 'YOURS', 'SIZES', 'NOTED', 'WIDTH', 'BURST', 'ROUTE', 'LUNGS', 'UNCLE', 'BEARS',
+'ROYAL', 'KINGS', 'FORTY', 'TRIAL', 'CARDS', 'BRASS', 'OPERA', 'CHOSE', 'OWNER', 'VAPOR',
+'BEATS', 'MOUSE', 'TOUGH', 'WIRES', 'METER', 'TOWER', 'FINDS', 'INNER', 'STUCK', 'ARROW',
+'POEMS', 'LABEL', 'SWING', 'SOLAR', 'TRULY', 'TENSE', 'BEANS', 'SPLIT', 'RISES', 'WEIGH',
+'HOTEL', 'STEMS', 'PRIDE', 'SWUNG', 'GRADE', 'DIGIT', 'BADLY', 'BOOTS', 'PILOT', 'SALES',
+'SWEPT', 'LUCKY', 'PRIZE', 'STOVE', 'TUBES', 'ACRES', 'WOUND', 'STEEP', 'SLIDE', 'TRUNK',
+'ERROR', 'PORCH', 'SLAVE', 'EXIST', 'FACED', 'MINES', 'MARRY', 'JUICE', 'RACED', 'WAVED',
+'GOOSE', 'TRUST', 'FEWER', 'FAVOR', 'MILLS', 'VIEWS', 'JOINT', 'EAGER', 'SPOTS', 'BLEND',
+'RINGS', 'ADULT', 'INDEX', 'NAILS', 'HORNS', 'BALLS', 'FLAME', 'RATES', 'DRILL', 'TRACE',
+'SKINS', 'WAXED', 'SEATS', 'STUFF', 'RATIO', 'MINDS', 'DIRTY', 'SILLY', 'COINS', 'HELLO',
+'TRIPS', 'LEADS', 'RIFLE', 'HOPES', 'BASES', 'SHINE', 'BENCH', 'MORAL', 'FIRES', 'MEALS',
+'SHAKE', 'SHOPS', 'CYCLE', 'MOVIE', 'SLOPE', 'CANOE', 'TEAMS', 'FOLKS', 'FIRED', 'BANDS',
+'THUMB', 'SHOUT', 'CANAL', 'HABIT', 'REPLY', 'RULED', 'FEVER', 'CRUST', 'SHELF', 'WALKS',
+'MIDST', 'CRACK', 'PRINT', 'TALES', 'COACH', 'STIFF', 'FLOOD', 'VERSE', 'AWAKE', 'ROCKY',
+'MARCH', 'FAULT', 'SWIFT', 'FAINT', 'CIVIL', 'GHOST', 'FEAST', 'BLADE', 'LIMIT', 'GERMS',
+'READS', 'DUCKS', 'DAIRY', 'WORST', 'GIFTS', 'LISTS', 'STOPS', 'RAPID', 'BRICK', 'CLAWS',
+'BEADS', 'BEAST', 'SKIRT', 'CAKES', 'LIONS', 'FROGS', 'TRIES', 'NERVE', 'GRAND', 'ARMED',
+'TREAT', 'HONEY', 'MOIST', 'LEGAL', 'PENNY', 'CROWN', 'SHOCK', 'TAXES', 'SIXTY', 'ALTAR',
+'PULLS', 'SPORT', 'DRUMS', 'TALKS', 'DYING', 'DATES', 'DRANK', 'BLOWS', 'LEVER', 'WAGES',
+'PROOF', 'DRUGS', 'TANKS', 'SINGS', 'TAILS', 'PAUSE', 'HERDS', 'AROSE', 'HATED', 'CLUES',
+'NOVEL', 'SHAME', 'BURNT', 'RACES', 'FLASH', 'WEARY', 'HEELS', 'TOKEN', 'COATS', 'SPARE',
+'SHINY', 'ALARM', 'DIMES', 'SIXTH', 'CLERK', 'MERCY', 'SUNNY', 'GUEST', 'FLOAT', 'SHONE',
+'PIPES', 'WORMS', 'BILLS', 'SWEAT', 'SUITS', 'SMART', 'UPSET', 'RAINS', 'SANDY', 'RAINY',
+'PARKS', 'SADLY', 'FANCY', 'RIDER', 'UNITY', 'BUNCH', 'ROLLS', 'CRASH', 'CRAFT', 'NEWLY',
+'GATES', 'HATCH', 'PATHS', 'FUNDS', 'WIDER', 'GRACE', 'GRAVE', 'TIDES', 'ADMIT', 'SHIFT',
+'SAILS', 'PUPIL', 'TIGER', 'ANGEL', 'CRUEL', 'AGENT', 'DRAMA', 'URGED', 'PATCH', 'NESTS',
+'VITAL', 'SWORD', 'BLAME', 'WEEDS', 'SCREW', 'VOCAL', 'BACON', 'CHALK', 'CARGO', 'CRAZY',
+'ACTED', 'GOATS', 'ARISE', 'WITCH', 'LOVES', 'QUEER', 'DWELL', 'BACKS', 'ROPES', 'SHOTS',
+'MERRY', 'PHONE', 'CHEEK', 'PEAKS', 'IDEAL', 'BEARD', 'EAGLE', 'CREEK', 'CRIES', 'ASHES',
+'STALL', 'YIELD', 'MAYOR', 'OPENS', 'INPUT', 'FLEET', 'TOOTH', 'CUBIC', 'WIVES', 'BURNS',
+'POETS', 'APRON', 'SPEAR', 'ORGAN', 'CLIFF', 'STAMP', 'PASTE', 'RURAL', 'BAKED', 'CHASE',
+'SLICE', 'SLANT', 'KNOCK', 'NOISY', 'SORTS', 'STAYS', 'WIPED', 'BLOWN', 'PILED', 'CLUBS',
+'CHEER', 'WIDOW', 'TWIST', 'TENTH', 'HIDES', 'COMMA', 'SWEEP', 'SPOON', 'STERN', 'CREPT',
+'MAPLE', 'DEEDS', 'RIDES', 'MUDDY', 'CRIME', 'JELLY', 'RIDGE', 'DRIFT', 'DUSTY', 'DEVIL',
+'TEMPO', 'HUMOR', 'SENDS', 'STEAL', 'TENTS', 'WAIST', 'ROSES', 'REIGN', 'NOBLE', 'CHEAP',
+'DENSE', 'LINEN', 'GEESE', 'WOVEN', 'POSTS', 'HIRED', 'WRATH', 'SALAD', 'BOWED', 'TIRES',
+'SHARK', 'BELTS', 'GRASP', 'BLAST', 'POLAR', 'FUNGI', 'TENDS', 'PEARL', 'LOADS', 'JOKES',
+'VEINS', 'FROST', 'HEARS', 'LOSES', 'HOSTS', 'DIVER', 'PHASE', 'TOADS', 'ALERT', 'TASKS',
+'SEAMS', 'CORAL', 'FOCUS', 'NAKED', 'PUPPY', 'JUMPS', 'SPOIL', 'QUART', 'MACRO', 'FEARS',
+'FLUNG', 'SPARK', 'VIVID', 'BROOK', 'STEER', 'SPRAY', 'DECAY', 'PORTS', 'SOCKS', 'URBAN',
+'GOALS', 'GRANT', 'MINUS', 'FILMS', 'TUNES', 'SHAFT', 'FIRMS', 'SKIES', 'BRIDE', 'WRECK',
+'FLOCK', 'STARE', 'HOBBY', 'BONDS', 'DARED', 'FADED', 'THIEF', 'CRUDE', 'PANTS', 'FLUTE',
+'VOTES', 'TONAL', 'RADAR', 'WELLS', 'SKULL', 'HAIRS', 'ARGUE', 'WEARS', 'DOLLS', 'VOTED',
+'CAVES', 'CARED', 'BROOM', 'SCENT', 'PANEL', 'FAIRY', 'OLIVE', 'BENDS', 'PRISM', 'LAMPS',
+'CABLE', 'PEACH', 'RUINS', 'RALLY', 'SCHWA', 'LAMBS', 'SELLS', 'COOLS', 'DRAFT', 'CHARM',
+'LIMBS', 'BRAKE', 'GAZED', 'CUBES', 'DELAY', 'BEAMS', 'FETCH', 'RANKS', 'ARRAY', 'HARSH',
+'CAMEL', 'VINES', 'PICKS', 'NAVAL', 'PURSE', 'RIGID', 'CRAWL', 'TOAST', 'SOILS', 'SAUCE',
+'BASIN', 'PONDS', 'TWINS', 'WRIST', 'FLUID', 'POOLS', 'BRAND', 'STALK', 'ROBOT', 'REEDS',
+'HOOFS', 'BUSES', 'SHEER', 'GRIEF', 'BLOOM', 'DWELT', 'MELTS', 'RISEN', 'FLAGS', 'KNELT',
+'FIBER', 'ROOFS', 'FREED', 'ARMOR', 'PILES', 'AIMED', 'ALGAE', 'TWIGS', 'LEMON', 'ATONE'
+];
 const wordGrid = document.querySelector(".grid");
 const wordCellCount = 5;
 const gridRows = [];
-const CORRECT_GUESS = "ATONE";
+const randomWordIndex = Math.floor(Math.random() * wordArray.length);
+const CORRECT_GUESS = wordArray[randomWordIndex];
+console.log(CORRECT_GUESS);
 const correctArray = CORRECT_GUESS.split("");
-const submitButton = document.querySelector("#submit-button")
-const guessesElement = document.querySelector("#guesses")
+const submitButton = document.querySelector("#submit-button");
+const guessesElement = document.querySelector("#guesses");
 let guesses = 6;
 let currentRowIndex = 0;
 
 function createRow() {
-  const row = [];
-  for (let i = 0; i < wordCellCount; i++) {
-      const cell = document.createElement("div");
-      cell.setAttribute('data-index', i);
-      wordGrid.appendChild(cell);
-      cell.innerText = "";
-      cell.classList.add('word-cell');
-      row.push(cell);
-  }
-  gridRows.push(row);
-  console.log(row)
+const row = [];
+for (let i = 0; i < wordCellCount; i++) {
+    const cell = document.createElement("div");
+    cell.setAttribute('data-index', i);
+    wordGrid.appendChild(cell);
+    cell.innerText = "";
+    cell.classList.add('word-cell');
+    row.push(cell);
+}
+gridRows.push(row);
 }
 for (let i = 0; i < 6; i++) {
-  createRow(i);
+createRow(i);
 }
 
 function checkForWinner() {
-  const GUESS = document.querySelector("input").value.toUpperCase();
-  if (GUESS.length !== 5) {
-      alert('Please enter a 5-letter word.');
-      return;
+const GUESS = document.querySelector("input").value.toUpperCase();
+if (GUESS.length !== 5) {
+    alert('Please enter a 5-letter word.');
+    return;
   }
 
-  const guessArray = GUESS.split("");
-  const resultsArray = new Array(5).fill('incorrect');
+const guessArray = GUESS.split("");
+const resultsArray = new Array(5).fill('incorrect');
 
-
-  for (let i = 0; i < CORRECT_GUESS.length; i++) {
-      if (correctArray[i] === guessArray[i]) {
-          resultsArray[i] = 'correct';
-      }
+for (let i = 0; i < CORRECT_GUESS.length; i++) {
+    if (correctArray[i] === guessArray[i]) {
+        resultsArray[i] = 'correct';
+    }
   }
 
-  for (let i = 0; i < CORRECT_GUESS.length; i++) {
-      if (resultsArray[i] !== 'correct' && correctArray.includes(guessArray[i])) {
-          resultsArray[i] = 'misplaced';
-      }
+for (let i = 0; i < CORRECT_GUESS.length; i++) {
+    if (resultsArray[i] !== 'correct' && correctArray.includes(guessArray[i])) {
+        resultsArray[i] = 'misplaced';
+    }
   }
 
-  colorHandling(guessArray, resultsArray);
-
-  if (resultsArray.some((result) => result !== 'correct')) {
-      guesses--;
-      guessesElement.innerText = guesses;
-      if (guesses === 0) {
-          endGame()
-      }
+colourHandling(guessArray, resultsArray);
+if (resultsArray.some((result) => result !== 'correct')) {
+    guesses--;
+    guessesElement.innerText = guesses;
+    if (guesses === 0) {
+        loseGame()
+    }
   }
-  currentRowIndex++;
+currentRowIndex++;
+
+if (GUESS === CORRECT_GUESS) {
+  winGame();
+  }
 }
 
-function colorHandling(guessArray, resultsArray) {
-  gridRows[currentRowIndex].forEach((cell, index) => {
-      cell.innerText = guessArray[index];
-      cell.classList.add(resultsArray[index]);
-  });
+function colourHandling(guessArray, resultsArray) {
+gridRows[currentRowIndex].forEach((cell, index) => {
+    cell.innerText = guessArray[index];
+    cell.classList.add(resultsArray[index]);
+});
 }
 
+function winGame() {
+gameActive = false;
+const gameOverMessage = document.createElement('div');
 
-function endGame() {
-  gameActive = false;
-  const gameOverMessage = document.createElement('div');
-
-  gameOverMessage.innerHTML = 'Game Over!';
-  gameOverMessage.style.position = 'absolute';
-  gameOverMessage.style.top = '50%';
-  gameOverMessage.style.left = '50%';
-  gameOverMessage.style.transform = 'translate(-50%, -50%)';
-  gameOverMessage.style.backgroundColor = 'orange';
-  gameOverMessage.style.fontSize = '48px';
-  gameOverMessage.style.padding = '20px';
-  gameOverMessage.style.fontWeight = 'bold'; 
-  document.body.appendChild(gameOverMessage);
-  submitButton.removeEventListener('click', checkForWinner)
+gameOverMessage.innerHTML = 'You win!';
+gameOverMessage.style.position = 'absolute';
+gameOverMessage.style.top = '50%';
+gameOverMessage.style.left = '50%';
+gameOverMessage.style.transform = 'translate(-50%, -50%)';
+gameOverMessage.style.backgroundColor = 'rgb(113, 255, 168)';
+gameOverMessage.style.fontSize = '48px';
+gameOverMessage.style.padding = '20px';
+gameOverMessage.style.fontWeight = 'bold'; 
+document.body.appendChild(gameOverMessage);
+submitButton.removeEventListener('click', checkForWinner)
 }
+
+function loseGame() {
+gameActive = false;
+const gameOverMessage = document.createElement('div');
+
+gameOverMessage.innerHTML = 'Game Over!';
+gameOverMessage.style.position = 'absolute';
+gameOverMessage.style.top = '50%';
+gameOverMessage.style.left = '50%';
+gameOverMessage.style.transform = 'translate(-50%, -50%)';
+gameOverMessage.style.backgroundColor = 'rgb(255, 91, 91)';
+gameOverMessage.style.fontSize = '48px';
+gameOverMessage.style.padding = '20px';
+gameOverMessage.style.fontWeight = 'bold'; 
+document.body.appendChild(gameOverMessage);
+submitButton.removeEventListener('click', checkForWinner)
+}
+
 
 submitButton.addEventListener('click', checkForWinner)
 
 
-const possibleWord =  [
-  'which', 'there', 'their', 'about', 'would', 'these', 'other', 'words', 'could', 'write',
-  'first', 'water', 'after', 'where', 'right', 'think', 'three', 'years', 'place', 'sound',
-  'great', 'again', 'still', 'every', 'small', 'found', 'those', 'never', 'under', 'might',
-  'while', 'house', 'world', 'below', 'asked', 'going', 'large', 'until', 'along', 'shall',
-  'being', 'often', 'earth', 'began', 'since', 'study', 'night', 'light', 'above', 'paper',
-  'parts', 'young', 'story', 'point', 'times', 'heard', 'whole', 'white', 'given', 'means',
-  'music', 'miles', 'thing', 'today', 'later', 'using', 'money', 'lines', 'order', 'group',
-  'among', 'learn', 'known', 'space', 'table', 'early', 'trees', 'short', 'hands', 'state',
-  'black', 'shown', 'stood', 'front', 'voice', 'kinds', 'makes', 'comes', 'close', 'power',
-  'lived', 'vowel', 'taken', 'built', 'heart', 'ready', 'quite', 'class', 'bring', 'round',
-  'horse', 'shows', 'piece', 'green', 'stand', 'birds', 'start', 'river', 'tried', 'least',
-  'field', 'whose', 'girls', 'leave', 'added', 'color', 'third', 'hours', 'moved', 'plant',
-  'doing', 'names', 'forms', 'heavy', 'ideas', 'cried', 'check', 'floor', 'begin', 'woman',
-  'alone', 'plane', 'spell', 'watch', 'carry', 'wrote', 'clear', 'named', 'books', 'child',
-  'glass', 'human', 'takes', 'party', 'build', 'seems', 'blood', 'sides', 'seven', 'mouth',
-  'solve', 'north', 'value', 'death', 'maybe', 'happy', 'tells', 'gives', 'looks', 'shape',
-  'lives', 'steps', 'areas', 'sense', 'speak', 'force', 'ocean', 'speed', 'women', 'metal',
-  'south', 'grass', 'scale', 'cells', 'lower', 'sleep', 'wrong', 'pages', 'ships', 'needs',
-  'rocks', 'eight', 'major', 'level', 'total', 'ahead', 'reach', 'stars', 'store', 'sight',
-  'terms', 'catch', 'works', 'board', 'cover', 'songs', 'equal', 'stone', 'waves', 'guess',
-  'dance', 'spoke', 'break', 'cause', 'radio', 'weeks', 'lands', 'basic', 'liked', 'trade',
-  'fresh', 'final', 'fight', 'meant', 'drive', 'spent', 'local', 'waxes', 'knows', 'train',
-  'bread', 'homes', 'teeth', 'coast', 'thick', 'brown', 'clean', 'quiet', 'sugar', 'facts',
-  'steel', 'forth', 'rules', 'notes', 'units', 'peace', 'month', 'verbs', 'seeds', 'helps',
-  'sharp', 'visit', 'woods', 'chief', 'walls', 'cross', 'wings', 'grown', 'cases', 'foods',
-  'crops', 'fruit', 'stick', 'wants', 'stage', 'sheep', 'nouns', 'plain', 'drink', 'bones',
-  'apart', 'turns', 'moves', 'touch', 'angle', 'based', 'range', 'marks', 'tired', 'older',
-  'farms', 'spend', 'shoes', 'goods', 'chair', 'twice', 'cents', 'empty', 'alike', 'style',
-  'broke', 'pairs', 'count', 'enjoy', 'score', 'shore', 'roots', 'paint', 'heads', 'shook',
-  'serve', 'angry', 'crowd', 'wheel', 'quick', 'dress', 'share', 'alive', 'noise', 'solid',
-  'cloth', 'signs', 'hills', 'types', 'drawn', 'worth', 'truck', 'piano', 'upper', 'loved',
-  'usual', 'faces', 'drove', 'cabin', 'boats', 'towns', 'proud', 'court', 'model', 'prime',
-  'fifty', 'plans', 'yards', 'prove', 'tools', 'price', 'sheet', 'smell', 'boxes', 'raise',
-  'match', 'truth', 'roads', 'threw', 'enemy', 'lunch', 'chart', 'scene', 'graph', 'doubt',
-  'guide', 'winds', 'block', 'grain', 'smoke', 'mixed', 'games', 'wagon', 'sweet', 'topic',
-  'extra', 'plate', 'title', 'knife', 'fence', 'falls', 'cloud', 'wheat', 'plays', 'enter',
-  'broad', 'steam', 'atoms', 'press', 'lying', 'basis', 'clock', 'taste', 'grows', 'thank',
-  'storm', 'agree', 'brain', 'track', 'smile', 'funny', 'beach', 'stock', 'hurry', 'saved',
-  'sorry', 'giant', 'trail', 'offer', 'ought', 'rough', 'daily', 'avoid', 'keeps', 'throw',
-  'allow', 'cream', 'laugh', 'edges', 'teach', 'frame', 'bells', 'dream', 'magic', 'occur',
-  'ended', 'chord', 'false', 'skill', 'holes', 'dozen', 'brave', 'apple', 'climb', 'outer',
-  'pitch', 'ruler', 'holds', 'fixed', 'costs', 'calls', 'blank', 'staff', 'labor', 'eaten',
-  'youth', 'tones', 'honor', 'globe', 'gases', 'doors', 'poles', 'loose', 'apply', 'tears',
-  'exact', 'brush', 'chest', 'layer', 'whale', 'minor', 'faith', 'tests', 'judge', 'items',
-  'worry', 'waste', 'hoped', 'strip', 'begun', 'aside', 'lakes', 'bound', 'depth', 'candy',
-  'event', 'worse', 'aware', 'shell', 'rooms', 'ranch', 'image', 'snake', 'aloud', 'dried',
-  'likes', 'motor', 'pound', 'knees', 'refer', 'fully', 'chain', 'shirt', 'flour', 'drops',
-  'spite', 'orbit', 'banks', 'shoot', 'curve', 'tribe', 'tight', 'blind', 'slept', 'shade',
-  'claim', 'flies', 'theme', 'queen', 'fifth', 'union', 'hence', 'straw', 'entry', 'issue',
-  'birth', 'feels', 'anger', 'brief', 'rhyme', 'glory', 'guard', 'flows', 'flesh', 'owned',
-  'trick', 'yours', 'sizes', 'noted', 'width', 'burst', 'route', 'lungs', 'uncle', 'bears',
-  'royal', 'kings', 'forty', 'trial', 'cards', 'brass', 'opera', 'chose', 'owner', 'vapor',
-  'beats', 'mouse', 'tough', 'wires', 'meter', 'tower', 'finds', 'inner', 'stuck', 'arrow',
-  'poems', 'label', 'swing', 'solar', 'truly', 'tense', 'beans', 'split', 'rises', 'weigh',
-  'hotel', 'stems', 'pride', 'swung', 'grade', 'digit', 'badly', 'boots', 'pilot', 'sales',
-  'swept', 'lucky', 'prize', 'stove', 'tubes', 'acres', 'wound', 'steep', 'slide', 'trunk',
-  'error', 'porch', 'slave', 'exist', 'faced', 'mines', 'marry', 'juice', 'raced', 'waved',
-  'goose', 'trust', 'fewer', 'favor', 'mills', 'views', 'joint', 'eager', 'spots', 'blend',
-  'rings', 'adult', 'index', 'nails', 'horns', 'balls', 'flame', 'rates', 'drill', 'trace',
-  'skins', 'waxed', 'seats', 'stuff', 'ratio', 'minds', 'dirty', 'silly', 'coins', 'hello',
-  'trips', 'leads', 'rifle', 'hopes', 'bases', 'shine', 'bench', 'moral', 'fires', 'meals',
-  'shake', 'shops', 'cycle', 'movie', 'slope', 'canoe', 'teams', 'folks', 'fired', 'bands',
-  'thumb', 'shout', 'canal', 'habit', 'reply', 'ruled', 'fever', 'crust', 'shelf', 'walks',
-  'midst', 'crack', 'print', 'tales', 'coach', 'stiff', 'flood', 'verse', 'awake', 'rocky',
-  'march', 'fault', 'swift', 'faint', 'civil', 'ghost', 'feast', 'blade', 'limit', 'germs',
-  'reads', 'ducks', 'dairy', 'worst', 'gifts', 'lists', 'stops', 'rapid', 'brick', 'claws',
-  'beads', 'beast', 'skirt', 'cakes', 'lions', 'frogs', 'tries', 'nerve', 'grand', 'armed',
-  'treat', 'honey', 'moist', 'legal', 'penny', 'crown', 'shock', 'taxes', 'sixty', 'altar',
-  'pulls', 'sport', 'drums', 'talks', 'dying', 'dates', 'drank', 'blows', 'lever', 'wages',
-  'proof', 'drugs', 'tanks', 'sings', 'tails', 'pause', 'herds', 'arose', 'hated', 'clues',
-  'novel', 'shame', 'burnt', 'races', 'flash', 'weary', 'heels', 'token', 'coats', 'spare',
-  'shiny', 'alarm', 'dimes', 'sixth', 'clerk', 'mercy', 'sunny', 'guest', 'float', 'shone',
-  'pipes', 'worms', 'bills', 'sweat', 'suits', 'smart', 'upset', 'rains', 'sandy', 'rainy',
-  'parks', 'sadly', 'fancy', 'rider', 'unity', 'bunch', 'rolls', 'crash', 'craft', 'newly',
-  'gates', 'hatch', 'paths', 'funds', 'wider', 'grace', 'grave', 'tides', 'admit', 'shift',
-  'sails', 'pupil', 'tiger', 'angel', 'cruel', 'agent', 'drama', 'urged', 'patch', 'nests',
-  'vital', 'sword', 'blame', 'weeds', 'screw', 'vocal', 'bacon', 'chalk', 'cargo', 'crazy',
-  'acted', 'goats', 'arise', 'witch', 'loves', 'queer', 'dwell', 'backs', 'ropes', 'shots',
-  'merry', 'phone', 'cheek', 'peaks', 'ideal', 'beard', 'eagle', 'creek', 'cries', 'ashes',
-  'stall', 'yield', 'mayor', 'opens', 'input', 'fleet', 'tooth', 'cubic', 'wives', 'burns',
-  'poets', 'apron', 'spear', 'organ', 'cliff', 'stamp', 'paste', 'rural', 'baked', 'chase',
-  'slice', 'slant', 'knock', 'noisy', 'sorts', 'stays', 'wiped', 'blown', 'piled', 'clubs',
-  'cheer', 'widow', 'twist', 'tenth', 'hides', 'comma', 'sweep', 'spoon', 'stern', 'crept',
-  'maple', 'deeds', 'rides', 'muddy', 'crime', 'jelly', 'ridge', 'drift', 'dusty', 'devil',
-  'tempo', 'humor', 'sends', 'steal', 'tents', 'waist', 'roses', 'reign', 'noble', 'cheap',
-  'dense', 'linen', 'geese', 'woven', 'posts', 'hired', 'wrath', 'salad', 'bowed', 'tires',
-  'shark', 'belts', 'grasp', 'blast', 'polar', 'fungi', 'tends', 'pearl', 'loads', 'jokes',
-  'veins', 'frost', 'hears', 'loses', 'hosts', 'diver', 'phase', 'toads', 'alert', 'tasks',
-  'seams', 'coral', 'focus', 'naked', 'puppy', 'jumps', 'spoil', 'quart', 'macro', 'fears',
-  'flung', 'spark', 'vivid', 'brook', 'steer', 'spray', 'decay', 'ports', 'socks', 'urban',
-  'goals', 'grant', 'minus', 'films', 'tunes', 'shaft', 'firms', 'skies', 'bride', 'wreck',
-  'flock', 'stare', 'hobby', 'bonds', 'dared', 'faded', 'thief', 'crude', 'pants', 'flute',
-  'votes', 'tonal', 'radar', 'wells', 'skull', 'hairs', 'argue', 'wears', 'dolls', 'voted',
-  'caves', 'cared', 'broom', 'scent', 'panel', 'fairy', 'olive', 'bends', 'prism', 'lamps',
-  'cable', 'peach', 'ruins', 'rally', 'schwa', 'lambs', 'sells', 'cools', 'draft', 'charm',
-  'limbs', 'brake', 'gazed', 'cubes', 'delay', 'beams', 'fetch', 'ranks', 'array', 'harsh',
-  'camel', 'vines', 'picks', 'naval', 'purse', 'rigid', 'crawl', 'toast', 'soils', 'sauce',
-  'basin', 'ponds', 'twins', 'wrist', 'fluid', 'pools', 'brand', 'stalk', 'robot', 'reeds',
-  'hoofs', 'buses', 'sheer', 'grief', 'bloom', 'dwelt', 'melts', 'risen', 'flags', 'knelt',
-  'fiber', 'roofs', 'freed', 'armor', 'piles', 'aimed', 'algae', 'twigs', 'lemon', 'atone'
-];
