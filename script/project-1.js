@@ -29,78 +29,44 @@ for (let i = 0; i < 6; i++) {
 function checkForWinner() {
   const GUESS = document.querySelector("input").value.toUpperCase();
   if (GUESS.length !== 5) {
-    alert('Please enter a 5-letter word.');
-    return;
+      alert('Please enter a 5-letter word.');
+      return;
   }
 
   const guessArray = GUESS.split("");
+  const resultsArray = new Array(5).fill('incorrect');
+
 
   for (let i = 0; i < CORRECT_GUESS.length; i++) {
-    if (correctArray[i] === guessArray[i]) {
-      resultsArray.push(guessArray[i]);
-      console.log(resultsArray);
-      colorHandling();
-    } else {
-      resultsArray.push(false);
-      incorrectLetters.push(guessArray[i]);
-      colorHandling();
-    }
+      if (correctArray[i] === guessArray[i]) {
+          resultsArray[i] = 'correct';
+      }
   }
 
-  // find the indexes that are false in the resultsArray and check if any of the indexes of the incorrect letters array match those indexes
-  const falseIndexes = resultsArray
-    .map((item, index) => {
-      if (item === false) {
-        return index;
+  for (let i = 0; i < CORRECT_GUESS.length; i++) {
+      if (resultsArray[i] !== 'correct' && correctArray.includes(guessArray[i])) {
+          resultsArray[i] = 'misplaced';
       }
-    })
-    .filter((i) => typeof i !== "undefined");
+  }
 
-  const wrongLettersFromCorrectArray = correctArray
-    .map((item, index) => {
-      if (falseIndexes.includes(index)) {
-        return item;
+  colorHandling(guessArray, resultsArray);
+
+  if (resultsArray.some((result) => result !== 'correct')) {
+      guesses--;
+      guessesElement.innerText = guesses;
+      if (guesses === 0) {
+          endGame()
       }
-    })
-    .filter((i) => i);
-
-  if (resultsArray.some((i) => i === false)) {
-    guesses--;
-    guessesElement.innerText = guesses;
-    if (guesses === 0) {
-      endGame()
-    }
-  } 
-
-  const correctButWrongPlace = wrongLettersFromCorrectArray.map((letter) => {
-      if (incorrectLetters.includes(letter)) {
-        return letter;
-      }
-    })
-    .filter((i) => i);
-    colorHandling();
-    currentRowIndex++;
-
-  console.log({
-    wrongLettersFromCorrectArray,
-    incorrectLetters,
-    correctButWrongPlace,
-  });
+  }
+  currentRowIndex++;
 }
 
-function colorHandling() {
-  gridRows[currentRowIndex].forEach(cell => {
-    const index = cell.getAttribute('data-index');
-    
-    if (correctArray[index]) {
-        cell.classList.add('correct');
-    } else if (correctButWrongPlace[index]) {
-        cell.classList.add('misplaced');
-    } else {
-        cell.classList.add('incorrect');
-    }
+function colorHandling(guessArray, resultsArray) {
+  gridRows[currentRowIndex].forEach((cell, index) => {
+      cell.innerText = guessArray[index];
+      cell.classList.add(resultsArray[index]);
   });
-};
+}
 
 
 function endGame() {
@@ -121,16 +87,6 @@ function endGame() {
 }
 
 submitButton.addEventListener('click', checkForWinner)
-
-
-
-
-
-
-
-
-
-
 
 
 const possibleWord =  [

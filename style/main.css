@@ -86,13 +86,13 @@ h1 {
   }
 
   .correct {
-    background-color: forestgreen;
+    background-color: rgb(113, 255, 168);
   }
 
   .misplaced {
-    background-color: yellow;
+    background-color: rgb(255, 183, 82);
   }
 
   .incorrect {
-    background-color: red;
+    background-color: rgb(255, 91, 91);
   }
