@@ -23,7 +23,7 @@ h1 {
   width: 15%;
 }
 
-h2 {
+/* h2 {
   margin: 20px 0;
   text-align: center; 
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2);
@@ -41,7 +41,7 @@ p {
   animation: fadeIn 0.25s ease-in-out;
   border: 1px solid rgb(0, 0, 0);
   width: 15%;
-}
+} */
 
 div.grid-wrapper {
   flex-grow: 0.5; 
@@ -202,3 +202,15 @@ div.grid-wrapper {
 #play-again:hover {
   background-color: rgb(102, 228, 150);
 }
+
+/* @media (max-width: 768px) {
+  h1 {
+    font-size: 6vw;
+  }
+  h2 {
+    font-size: 5vw;
+  }
+  p {
+    font-size: 4vw;
+  }
+} */
