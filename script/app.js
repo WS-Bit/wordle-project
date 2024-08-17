@@ -154,7 +154,7 @@ const wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * wordArray.length);
 let CORRECT_GUESS = wordArray[randomWordIndex];
-// console.log(CORRECT_GUESS);
+console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button");
 const inputBox = document.querySelector(".text-input");
@@ -240,19 +240,19 @@ gridRows[currentRowIndex].forEach((cell, index) => {
 function winGame() {
   incrementWins()
   gameActive = false;
-  const gameOverMessage = document.createElement('div');
+  const winGameMessage = document.createElement('div');
 
-  gameOverMessage.id = 'winGameMessage'
-  gameOverMessage.innerHTML = 'You win!';
-  gameOverMessage.style.position = 'absolute';
-  gameOverMessage.style.top = '50%';
-  gameOverMessage.style.left = '50%';
-  gameOverMessage.style.transform = 'translate(-50%, -50%)';
-  gameOverMessage.style.backgroundColor = 'rgb(113, 255, 168)';
-  gameOverMessage.style.fontSize = '48px';
-  gameOverMessage.style.padding = '20px';
-  gameOverMessage.style.fontWeight = 'bold'; 
-  gameOverMessage.style.border = '1px solid black';
+  winGameMessage.id = 'winGameMessage'
+  winGameMessage.innerHTML = 'You win!';
+  winGameMessage.style.position = 'absolute';
+  winGameMessage.style.top = '50%';
+  winGameMessage.style.left = '50%';
+  winGameMessage.style.transform = 'translate(-50%, -50%)';
+  winGameMessage.style.backgroundColor = 'rgb(113, 255, 168)';
+  winGameMessage.style.fontSize = '48px';
+  winGameMessage.style.padding = '20px';
+  winGameMessage.style.fontWeight = 'bold'; 
+  winGameMessage.style.border = '1px solid black';
   document.body.appendChild(winGameMessage);
   submitButton.removeEventListener('click', checkForWinner)
   playAgainButton.style.display = 'block';
