@@ -147,16 +147,17 @@ const wordArray =  [
 'BATHS', 'GLIDE', 'PLOTS', 'TRAIT', 'RESIN', 'SLUMS', 'LYRIC', 'PUFFS', 'DECKS', 'BROOD',
 'MOURN', 'ALoft', 'ABUSE', 'WHIRL', 'EDGED', 'OVARY', 'QUACK', 'HEAPS', 'SLANG', 'AWAIT',
 'CIVIC', 'SAINT', 'BEVEL', 'SONAR', 'AUNTS', 'PACKS', 'FROZE', 'TONIC', 'CORPS', 'SWARM',
-'FRANK', 'REPAY', 'GAUNT', 'WIRED'
+'FRANK', 'REPAY', 'GAUNT', 'WIRED', 'GAMER', 
 ];
 const wordGrid = document.querySelector(".grid");
 const wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * wordArray.length);
 let CORRECT_GUESS = wordArray[randomWordIndex];
-// console.log(CORRECT_GUESS);
+console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button");
+const inputBox = document.querySelector(".text-input");
 const guessesElement = document.querySelector("#guesses");
 const playAgainButton = document.getElementById('play-again');
 let guesses = 6;
@@ -182,43 +183,52 @@ createRow(i);
 
 function checkForWinner() {
   const GUESS = document.querySelector("input").value.toUpperCase();
-if (GUESS.length !== 5) {
-    alert('Please enter a 5-letter word.');
-    return;
+  if (GUESS.length !== wordCellCount) {
+      alert('Please enter a 5-letter word.');
+      return;
   } 
 
-if (!wordArray.includes(GUESS)) {
-  alert('The word is not in the list of valid words.');
-  return;
-}
-
-const guessArray = GUESS.split("");
-const resultsArray = new Array(5).fill('incorrect');
-
-for (let i = 0; i < CORRECT_GUESS.length; i++) {
-    if (correctArray[i] === guessArray[i]) {
-        resultsArray[i] = 'correct';
-    }
+  if (!wordArray.includes(GUESS)) {
+      alert('The word is not in the list of valid words.');
+      return;
   }
 
-for (let i = 0; i < CORRECT_GUESS.length; i++) {
-    if (resultsArray[i] !== 'correct' && correctArray.includes(guessArray[i])) {
-        resultsArray[i] = 'misplaced';
-    }
+  const guessArray = GUESS.split("");
+  const displayGuessArray = [...guessArray]; // Keep an unmodified copy for display
+  let correctArray = [...CORRECT_GUESS.split("")]; // Copy of correctArray to mark used letters
+  const resultsArray = new Array(wordCellCount).fill('incorrect');
+
+  // First Pass: Mark 'correct' guesses
+  for (let i = 0; i < wordCellCount; i++) {
+      if (guessArray[i] === correctArray[i]) {
+          resultsArray[i] = 'correct';
+          correctArray[i] = null;  // Mark this letter as used
+          guessArray[i] = null;     // Mark this letter as used
+      }
   }
 
-colourHandling(guessArray, resultsArray);
-if (resultsArray.some((result) => result !== 'correct')) {
-    guesses--;
-    guessesElement.innerText = guesses;
-    if (guesses === 0) {
-        loseGame()
-    }
+  // Second Pass: Mark 'misplaced' guesses
+  for (let i = 0; i < wordCellCount; i++) {
+      if (guessArray[i] !== null) { // Only check letters that haven't been marked 'correct'
+          let index = correctArray.indexOf(guessArray[i]);
+          if (index !== -1) {
+              resultsArray[i] = 'misplaced';
+              correctArray[index] = null; // Mark this letter as used
+          }
+      }
   }
-currentRowIndex++;
 
-if (GUESS === CORRECT_GUESS) {
-  winGame();
+  colourHandling(displayGuessArray, resultsArray); // Use the unmodified array for display
+  
+  if (resultsArray.every((result) => result === 'correct')) {
+      winGame();
+  } else {
+      guesses--;
+      guessesElement.innerText = guesses;
+      if (guesses === 0) {
+          loseGame();
+      }
+      currentRowIndex++;
   }
 }
 
@@ -244,6 +254,7 @@ function winGame() {
   gameOverMessage.style.fontSize = '48px';
   gameOverMessage.style.padding = '20px';
   gameOverMessage.style.fontWeight = 'bold'; 
+  gameOverMessage.style.border = '1px solid black';
   document.body.appendChild(gameOverMessage);
   submitButton.removeEventListener('click', checkForWinner)
   playAgainButton.style.display = 'block';
@@ -343,5 +354,19 @@ function updateWinDisplay(wins) {
   document.getElementById('win-count').textContent = wins;
 }
 
-submitButton.addEventListener('click', checkForWinner)
+submitButton.addEventListener('click', function(event) {
+  if (event) {
+    event.preventDefault();
+    checkForWinner();
+    inputBox.value = '';
+  }
+});
+inputBox.addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    checkForWinner();
+    inputBox.value = '';
+  }
+});
+
 localStorage.setItem('wordleWins', wins);
