@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: rgb(255, 248, 242);
+  background-color: rgb(255, 243, 233);
   font-family: system-ui, sans-serif;
   margin: 0;
   display: flex;
@@ -17,8 +17,9 @@ h1 {
   margin: 20px 0; 
   text-align: center; 
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
-  border: 5px solid rgb(232, 212, 194);
-  background-color: rgb(242, 227, 214);
+  border: 5px solid rgb(243, 213, 187);
+  background-color: rgb(243, 213, 187);
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 .grid-wrapper {
@@ -27,6 +28,7 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 100%;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 .grid {
@@ -39,6 +41,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px; 
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 #form {
@@ -47,6 +50,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px; 
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 .text-input {
@@ -58,6 +62,7 @@ h1 {
   font-family: system-ui, sans-serif;
   background-color: rgb(255, 236, 219);
   margin-right: 10px; 
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 #submit-button {
@@ -66,6 +71,7 @@ h1 {
   align-items: center;
   margin: 0;
   font-family: system-ui, sans-serif;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 .guesses-box {
@@ -77,6 +83,7 @@ h1 {
   width: 100px;
   height: 50px;
   margin-bottom: 20px;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 #guesses {
@@ -86,6 +93,7 @@ h1 {
   align-items: center;
   gap: 10px; 
   margin-left: 5px;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 #win-counter {
@@ -97,6 +105,7 @@ h1 {
   width: 120px;
   height: 50px;
   margin-bottom: 40px;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 #win-count {
@@ -106,28 +115,40 @@ h1 {
   align-items: center;
   gap: 10px;
   margin-left: 8px;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 .grid div {
   width: 18%;
   height: 10%;
   border: 1px solid black;
-  background-color: rgb(255, 236, 219);
+  background-color: rgb(251, 236, 223);
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.25s ease-in-out;
 }
 
 .grid div.correct {
   background-color: rgb(113, 255, 168);
+  animation: fadeIn 0.45s ease-in-out;
 }
 
 .grid div.misplaced {
   background-color: rgb(255, 183, 82);
+  animation: fadeIn 0.45s ease-in-out;
+  
 }
 
 .grid div.incorrect {
   background-color: rgb(255, 91, 91);
+  animation: fadeIn 0.45s ease-in-out;
+  
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 #play-again {

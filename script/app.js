@@ -194,31 +194,29 @@ function checkForWinner() {
   }
 
   const guessArray = GUESS.split("");
-  const displayGuessArray = [...guessArray]; // Keep an unmodified copy for display
-  let correctArray = [...CORRECT_GUESS.split("")]; // Copy of correctArray to mark used letters
+  const displayGuessArray = [...guessArray];
+  let correctArray = [...CORRECT_GUESS.split("")];
   const resultsArray = new Array(wordCellCount).fill('incorrect');
 
-  // First Pass: Mark 'correct' guesses
   for (let i = 0; i < wordCellCount; i++) {
       if (guessArray[i] === correctArray[i]) {
           resultsArray[i] = 'correct';
-          correctArray[i] = null;  // Mark this letter as used
-          guessArray[i] = null;     // Mark this letter as used
+          correctArray[i] = null;
+          guessArray[i] = null;
       }
   }
 
-  // Second Pass: Mark 'misplaced' guesses
   for (let i = 0; i < wordCellCount; i++) {
-      if (guessArray[i] !== null) { // Only check letters that haven't been marked 'correct'
+      if (guessArray[i] !== null) {
           let index = correctArray.indexOf(guessArray[i]);
           if (index !== -1) {
               resultsArray[i] = 'misplaced';
-              correctArray[index] = null; // Mark this letter as used
+              correctArray[index] = null; 
           }
       }
   }
 
-  colourHandling(displayGuessArray, resultsArray); // Use the unmodified array for display
+  colourHandling(displayGuessArray, resultsArray);
   
   if (resultsArray.every((result) => result === 'correct')) {
       winGame();
