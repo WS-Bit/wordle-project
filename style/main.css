@@ -16,13 +16,33 @@ body {
 h1 {
   margin: 20px 0; 
   text-align: center; 
-  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
-  border: 5px solid rgb(243, 213, 187);
-  background-color: rgb(243, 213, 187);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(255, 239, 225);
   animation: fadeIn 0.25s ease-in-out;
+  width: 40%;
 }
 
-.grid-wrapper {
+h2 {
+  margin: 20px 0;
+  text-align: center; 
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(255, 236, 219);
+  width: 30%;
+}
+
+p {
+  margin: 20px 0; 
+  text-align: center; 
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgb(255, 233, 213);
+  animation: fadeIn 0.25s ease-in-out;
+  border: 1px solid rgb(0, 0, 0);
+  width: 40%;
+}
+
+div.grid-wrapper {
   flex-grow: 0.5; 
   display: flex;
   justify-content: center;
@@ -32,10 +52,10 @@ h1 {
 }
 
 .grid {
-  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
   height: 400px;
   width: 600px;
-  background-color: rgb(235, 210, 188);
+  background-color: rgb(248, 227, 209);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -56,11 +76,11 @@ h1 {
 .text-input {
   display: flex;
   align-items: center;
-  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
   height: 30px;
   width: 70px;
   font-family: system-ui, sans-serif;
-  background-color: rgb(255, 236, 219);
+  background-color: rgb(255, 244, 235);
   margin-right: 10px; 
   animation: fadeIn 0.25s ease-in-out;
 }
@@ -79,7 +99,8 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 10px;
-  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
   width: 100px;
   height: 50px;
   margin-bottom: 20px;
@@ -101,7 +122,8 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 10px;
-  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
   width: 120px;
   height: 50px;
   margin-bottom: 40px;
@@ -122,7 +144,7 @@ h1 {
   width: 18%;
   height: 10%;
   border: 1px solid black;
-  background-color: rgb(251, 236, 223);
+  background-color: rgb(253, 243, 235);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,13 +157,13 @@ h1 {
 }
 
 .grid div.misplaced {
-  background-color: rgb(255, 183, 82);
+  background-color: rgb(255, 189, 97);
   animation: fadeIn 0.45s ease-in-out;
   
 }
 
 .grid div.incorrect {
-  background-color: rgb(255, 91, 91);
+  background-color: rgb(255, 115, 115);
   animation: fadeIn 0.45s ease-in-out;
   
 }

@@ -202,7 +202,7 @@ function checkForWinner() {
       if (guessArray[i] === correctArray[i]) {
           resultsArray[i] = 'correct';
           correctArray[i] = null;
-          guessArray[i] = null;
+          guessArray[i] = null;  // ! null being 
       }
   }
 
@@ -253,7 +253,7 @@ function winGame() {
   gameOverMessage.style.padding = '20px';
   gameOverMessage.style.fontWeight = 'bold'; 
   gameOverMessage.style.border = '1px solid black';
-  document.body.appendChild(gameOverMessage);
+  document.body.appendChild(winGameMessage);
   submitButton.removeEventListener('click', checkForWinner)
   playAgainButton.style.display = 'block';
 }
@@ -268,11 +268,12 @@ function loseGame() {
   gameOverContainer.style.top = '50%';
   gameOverContainer.style.left = '50%';
   gameOverContainer.style.transform = 'translate(-50%, -50%)';
-  gameOverContainer.style.backgroundColor = 'rgb(214, 165, 250)';
+  gameOverContainer.style.backgroundColor = 'rgb(255, 91, 91)';
   gameOverContainer.style.fontSize = '28px';
   gameOverContainer.style.padding = '20px';
   gameOverContainer.style.fontWeight = 'bold';
   gameOverContainer.style.textAlign = 'center';
+  gameOverMessage.style.border = '1px solid black';
 
   const gameOverMessage = document.createElement('div');
   gameOverMessage.innerHTML = 'Game Over!';
