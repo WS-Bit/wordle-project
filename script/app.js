@@ -1,5 +1,3 @@
-function init() {
-
 console.log("Hello world! Java script is working!")
 const wordArray =  [
 'WHICH', 'THERE', 'THEIR', 'ABOUT', 'WOULD', 'THESE', 'OTHER', 'WORDS', 'COULD', 'WRITE',
@@ -334,17 +332,24 @@ function resetGame() {
   submitButton.addEventListener('click', checkForWinner);
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  initWinCounter();
+});
+
 function initWinCounter() {
   let wins = localStorage.getItem('wordleWins');
+  console.log('Initial wins from localStorage:', wins);
   wins = wins ? parseInt(wins) : 0;
   updateWinDisplay(wins);
 }
 
 function incrementWins() {
   let wins = localStorage.getItem('wordleWins');
+  console.log('Wins before increment:', wins);
   wins = wins ? parseInt(wins) : 0;
   wins++;
   localStorage.setItem('wordleWins', wins);
+  console.log('Wins after increment:', wins);
   updateWinDisplay(wins);
 }
 
@@ -413,10 +418,4 @@ inputBox.addEventListener('keyup', function(event) {
 
 localStorage.setItem('wordleWins', wins);
 
-document.addEventListener('DOMContentLoaded', function() {
-  initWinCounter();
-});
 
-}
-
-window.addEventListener("DOMContentLoaded", init,)
