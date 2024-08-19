@@ -201,7 +201,7 @@ function checkForWinner() {
       if (guessArray[i] === correctArray[i]) {
           resultsArray[i] = 'correct';
           correctArray[i] = null;
-          guessArray[i] = null;  // ! null being 
+          guessArray[i] = null;
       }
   }
 
@@ -399,19 +399,21 @@ function hideRules() {
 
 rules.addEventListener('mouseover', displayRules);
 rules.addEventListener('mouseout', hideRules);
-rules.addEventListener('toggle', displayRules)
 
 submitButton.addEventListener('click', function(event) {
   if (event) {
     event.preventDefault();
     checkForWinner();
+    audio.play();
     inputBox.value = '';
   }
 });
+
 inputBox.addEventListener('keyup', function(event) {
   if (event.key === 'Enter') {
     event.preventDefault();
     checkForWinner();
+    audio.play();
     inputBox.value = '';
   }
 });
