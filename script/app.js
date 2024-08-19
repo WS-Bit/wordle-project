@@ -147,19 +147,20 @@ const wordArray =  [
 'BATHS', 'GLIDE', 'PLOTS', 'TRAIT', 'RESIN', 'SLUMS', 'LYRIC', 'PUFFS', 'DECKS', 'BROOD',
 'MOURN', 'ALoft', 'ABUSE', 'WHIRL', 'EDGED', 'OVARY', 'QUACK', 'HEAPS', 'SLANG', 'AWAIT',
 'CIVIC', 'SAINT', 'BEVEL', 'SONAR', 'AUNTS', 'PACKS', 'FROZE', 'TONIC', 'CORPS', 'SWARM',
-'FRANK', 'REPAY', 'GAUNT', 'WIRED', 'GAMER', 
+'FRANK', 'REPAY', 'WIRED', 'GAMER', 
 ];
 const wordGrid = document.querySelector(".grid");
 const wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * wordArray.length);
 let CORRECT_GUESS = wordArray[randomWordIndex];
-// console.log(CORRECT_GUESS);
+console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button");
 const inputBox = document.querySelector(".text-input");
 const guessesElement = document.querySelector("#guesses");
 const playAgainButton = document.getElementById('play-again');
+const rules = document.querySelector(".rules");
 let guesses = 6;
 let currentRowIndex = 0;
 let wins = localStorage.getItem('wordleWins');
@@ -183,10 +184,6 @@ createRow(i);
 
 function checkForWinner() {
   const GUESS = document.querySelector("input").value.toUpperCase();
-  if (GUESS.length !== wordCellCount) {
-      alert('Please enter a 5-letter word.');
-      return;
-  } 
 
   if (!wordArray.includes(GUESS)) {
       alert('The word is not in the list of valid words.');
@@ -273,7 +270,7 @@ function loseGame() {
   gameOverContainer.style.padding = '20px';
   gameOverContainer.style.fontWeight = 'bold';
   gameOverContainer.style.textAlign = 'center';
-  gameOverMessage.style.border = '1px solid black';
+  gameOverContainer.style.border = '1px solid black';
 
   const gameOverMessage = document.createElement('div');
   gameOverMessage.innerHTML = 'Game Over!';
@@ -352,6 +349,41 @@ function eraseWins() {
 function updateWinDisplay(wins) {
   document.getElementById('win-count').textContent = wins;
 }
+
+function displayRules() {
+  const rulesBox = document.createElement('div');
+
+  rulesBox.id = 'rulesBox';
+  rulesBox.style.position = 'absolute';
+  rulesBox.style.top = '50%';
+  rulesBox.style.left = '50%';
+  rulesBox.style.transform = 'translate(-50%, -50%)';
+  rulesBox.style.backgroundColor = 'rgb(250, 223, 200)';
+  rulesBox.style.fontSize = '28px';
+  rulesBox.style.padding = '20px';
+  rulesBox.style.fontWeight = 'bold';
+  rulesBox.style.textAlign = 'center';
+  rulesBox.style.border = '1px solid black';
+
+  const rulesMessage = document.createElement('div');
+  rulesMessage.innerHTML = 'Enter a 5 letter word. <br> Green = Correct letter and placement, <br> Yellow = Correct letter, wrong placement, <br> Red = Wrong letter!';
+  rulesMessage.style.marginBottom = '10px'; 
+
+  rulesBox.appendChild(rulesMessage);
+
+  // Append the rulesBox to the document body
+  document.body.appendChild(rulesBox);
+}
+
+function hideRules() {
+  const rulesBox = document.getElementById('rulesBox');
+  if (rulesBox) {
+    document.body.removeChild(rulesBox);
+  }
+}
+
+rules.addEventListener('mouseover', displayRules);
+rules.addEventListener('mouseout', hideRules);
 
 submitButton.addEventListener('click', function(event) {
   if (event) {

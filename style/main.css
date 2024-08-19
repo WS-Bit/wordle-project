@@ -19,8 +19,27 @@ h1 {
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
   border: 1px solid rgb(0, 0, 0);
   background-color: rgb(255, 239, 225);
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.40s ease-in-out;
   width: 15%;
+}
+
+.rules {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 50px;
+  width: 70px;
+  font-family: system-ui, sans-serif;
+  background-color: rgb(251, 238, 227);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.45s ease-in-out;
+  border: 1px solid rgb(0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.rules:hover {
+  background-color: rgb(253, 224, 199);
 }
 
 /* h2 {
@@ -49,7 +68,7 @@ div.grid-wrapper {
   justify-content: center;
   align-items: center;
   width: 100%;
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.50s ease-in-out;
 }
 
 .grid {
@@ -62,7 +81,7 @@ div.grid-wrapper {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px; 
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.50s ease-in-out;
 }
 
 #form {
@@ -71,7 +90,7 @@ div.grid-wrapper {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px; 
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.55s ease-in-out;
 }
 
 .text-input {
@@ -85,7 +104,7 @@ div.grid-wrapper {
   font-family: system-ui, sans-serif;
   background-color: rgb(255, 244, 235);
   margin-right: 10px; 
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.60s ease-in-out;
 }
 
 #submit-button {
@@ -98,7 +117,7 @@ div.grid-wrapper {
   font-family: system-ui, sans-serif;
   background-color: rgb(251, 238, 227);
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.60s ease-in-out;
   transition: background-color 0.3s ease;
 }
 
@@ -117,7 +136,7 @@ div.grid-wrapper {
   width: 100px;
   height: 50px;
   margin-bottom: 20px;
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.60s ease-in-out;
 }
 
 #guesses {
@@ -127,7 +146,7 @@ div.grid-wrapper {
   align-items: center;
   gap: 10px; 
   margin-left: 5px;
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.65s ease-in-out;
 }
 
 #win-counter {
@@ -139,7 +158,7 @@ div.grid-wrapper {
   border: 1px solid black;
   width: 120px;
   height: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 65px;
   animation: fadeIn 0.25s ease-in-out;
 }
 
@@ -150,7 +169,7 @@ div.grid-wrapper {
   align-items: center;
   gap: 10px;
   margin-left: 8px;
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.65s ease-in-out;
 }
 
 .grid div {
@@ -161,23 +180,23 @@ div.grid-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 .grid div.correct {
   background-color: rgb(113, 255, 168);
-  animation: fadeIn 0.45s ease-in-out;
+  animation: fadeIn 1 ease-in-out;
 }
 
 .grid div.misplaced {
   background-color: rgb(255, 189, 97);
-  animation: fadeIn 0.45s ease-in-out;
+  animation: fadeIn 1 ease-in-out;
   
 }
 
 .grid div.incorrect {
   background-color: rgb(255, 115, 115);
-  animation: fadeIn 0.45s ease-in-out;
+  animation: fadeIn 1 ease-in-out;
   
 }
 
@@ -203,14 +222,8 @@ div.grid-wrapper {
   background-color: rgb(102, 228, 150);
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   h1 {
-    font-size: 6vw;
-  }
-  h2 {
-    font-size: 5vw;
-  }
-  p {
     font-size: 4vw;
   }
-} */
+}
