@@ -412,8 +412,11 @@ inputBox.addEventListener('keyup', function(event) {
 });
 
 localStorage.setItem('wordleWins', wins);
+
+document.addEventListener('DOMContentLoaded', function() {
+  initWinCounter();
+});
+
 }
 
-window.addEventListener("DOMContentLoaded", init, function() { 
-  initWinCounter();
-})
+window.addEventListener("DOMContentLoaded", init,)
