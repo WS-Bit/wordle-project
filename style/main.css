@@ -53,15 +53,27 @@ div.grid-wrapper {
 
 .grid {
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
-  height: 400px;
-  width: 600px;
   background-color: rgb(248, 227, 209);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px; 
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
   animation: fadeIn 0.7s ease-in-out;
+  padding: 20px;
+  justify-content: center;
+}
+
+.grid.easy-mode {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 400px;
+  height: 460px;
+}
+
+.grid.hard-mode {
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 520px;
+  height: 460px;
 }
 
 #form {
@@ -105,7 +117,6 @@ div.grid-wrapper {
     background-color: rgb(253, 224, 199);
 }
 
-
 .guesses-box {
   display: flex;
   justify-content: center;
@@ -137,7 +148,7 @@ div.grid-wrapper {
   border: 1px solid black;
   width: 120px;
   height: 50px;
-  margin-bottom: 65px;
+  margin-bottom: 20px;
   animation: fadeIn 0.9s ease-in-out;
 }
 
@@ -150,35 +161,78 @@ div.grid-wrapper {
   margin-left: 8px;
 }
 
+.mode-container {
+ display: flex;
+}
+
+.hard-mode-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  height: 50px;
+  width: 70px;
+  font-family: system-ui, sans-serif;
+  font-size: small;
+  text-align: center;
+  background-color: rgb(251, 238, 227);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.6s ease-in-out;
+  border: 1px solid rgb(0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.hard-mode-button:hover {
+  background-color: rgb(253, 224, 199);
+}
+
+.easy-mode-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  height: 50px;
+  width: 70px;
+  font-family: system-ui, sans-serif;
+  font-size: small;
+  text-align: center;
+  background-color: rgb(251, 238, 227);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.6s ease-in-out;
+  border: 1px solid rgb(0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+.easy-mode-button:hover {
+  background-color: rgb(253, 224, 199);
+}
+
 .grid div {
-  width: 18%;
-  height: 10%;
+  width: 100%;
+  height: 100%;
   border: 1px solid black;
   background-color: rgb(253, 243, 235);
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem; /* Adjust font size for letters */
   animation: fadeIn 0.6s ease-in-out;
 }
 
 .grid div.correct {
   background-color: rgb(113, 255, 168);
   transition: background-color 0.6s ease;
-  
 }
 
 .grid div.misplaced {
   background-color: rgb(255, 189, 97);
   transition: background-color 0.6s ease;
-  
 }
 
 .grid div.incorrect {
   background-color: rgb(255, 115, 115);
   transition: background-color 0.6s ease;
-  
 }
-
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -202,10 +256,14 @@ div.grid-wrapper {
   background-color: rgb(102, 228, 150);
 }
 
-
-
 @media (max-width: 768px) {
   h1 {
     font-size: 4vw;
+  }
+  .grid {
+    width: 90%; /* Ensure grid takes most of the width on smaller screens */
+  }
+  .grid div {
+    font-size: 4vw; /* Adjust font size for smaller screens */
   }
 }

@@ -1,4 +1,5 @@
 console.log("Hello world! Java script is working!")
+
 const easyWordArray =  [
 'WHICH', 'THERE', 'THEIR', 'ABOUT', 'WOULD', 'THESE', 'OTHER', 'WORDS', 'COULD', 'WRITE',
 'FIRST', 'WATER', 'AFTER', 'WHERE', 'RIGHT', 'THINK', 'THREE', 'YEARS', 'PLACE', 'SOUND',
@@ -131,7 +132,7 @@ const easyWordArray =  [
 'SNARE', 'TUSKS', 'BULLS', 'MOODS', 'HUMID', 'FINER', 'DIMLY', 'PLANK', 'CHINA', 'PINES',
 'GUILT', 'SACKS', 'BRACE', 'QUOTE', 'LATHE', 'GAILY', 'FONTS', 'SCALP', 'ADOPT', 'FOGGY',
 'FERNS', 'GRAMS', 'CLUMP', 'PERCH', 'TUMOR', 'TEENS', 'CRANK', 'FABLE', 'HEDGE', 'GENES',
-'SOBER', 'BOAST', 'TRACT', 'CIGAR', 'UNITE', 'OWING', 'THIGH', 'HAIKU', 'SWISH', 'DIKES',
+'SOBER', 'BOAST', 'TRACT', 'CIGAR', 'UNITE', 'OWING', 'THIGH', 'HAIKU', 'SWISH',
 'WEDGE', 'BOOTH', 'EASED', 'FRAIL', 'COUGH', 'TOMBS', 'DARTS', 'FORTS', 'CHOIR', 'POUCH',
 'PINCH', 'HAIRY', 'BUYER', 'TORCH', 'VIGOR', 'WALTZ', 'HEATS', 'HERBS', 'USERS', 'FLINT',
 'CLICK', 'MADAM', 'BLEAK', 'BLUNT', 'AIDED', 'LACKS', 'MASKS', 'WADED', 'NURSE',
@@ -150,15 +151,28 @@ const easyWordArray =  [
 'FRANK', 'REPAY', 'WIRED', 'GAMER', 
 ];
 
+const hardWordArray =  
+ ["ABANDON", "ABSOLVE", "AIRPORT", "ALLEGRO", "AMAZING", "APOLOGY", "BAGGAGE",
+  "BALLETS", "BEAUTIFUL", "BLANKET", "CABARET", "CHARMING", "CITIZEN", "CLIMATE",
+  "COOKING", "DANCING", "DELIGHT", "DIPLOMA", "DOGGONE", "ELEVATE", "ENIGMA",
+  "EXPLORE", "FAVORABLE", "FANTASY", "FAUCETS", "FIGHTING", "GARBAGE", "GLIMMER",
+  "HARMONY", "HORIZON", "IMPACT", "JOVIAL", "KITCHEN", "LIBERTY", "MAGICAL",
+  "MAGNIFY", "MYSTERY", "NATURED", "NOTABLE", "OUTLOOK", "PACKAGE", "PASSAGE",
+  "PUZZLE", "QUICKEN", "REVISIT", "RESTFUL", "ROMANCE", "SAILOR", "SCRAMBLE",
+  "SELECT", "SINCERE", "SKILLET", "SURVIVE", "TROUBLE", "VARIETY", "VICTORY",
+  "WARRANT", "WONDER", "YELLOW", "ZENITH"
+];
+
 // ! CONSTS
 
 const wordGrid = document.querySelector(".grid");
-const wordCellCount = 5;
+let wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
 let CORRECT_GUESS = easyWordArray[randomWordIndex];
 console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
+
 const submitButton = document.querySelector("#submit-button");
 const inputBox = document.querySelector(".text-input");
 const guessesElement = document.querySelector("#guesses");
@@ -171,6 +185,8 @@ let guesses = 6;
 let currentRowIndex = 0;
 let wins = localStorage.getItem('wordleWins');
     wins = wins ? parseInt(wins) : 0;
+
+let gameMode ='easy';
 
 // ! ROW CREATION
 
@@ -186,19 +202,37 @@ for (let i = 0; i < wordCellCount; i++) {
 }
 gridRows.push(row);
 }
-for (let i = 0; i < 6; i++) {
-createRow(i);
+
+function createGrid() {
+  wordGrid.innerHTML = '';
+  gridRows.length = 0;
+  
+  if (gameMode === 'easy') {
+      wordGrid.classList.remove('hard-mode');
+      wordGrid.classList.add('easy-mode');
+  } else {
+      wordGrid.classList.remove('easy-mode');
+      wordGrid.classList.add('hard-mode');
+  }
+
+  // Create the rows
+  for (let i = 0; i < 6; i++) {
+      createRow();
+  }
 }
+
+createGrid();
 
 //! MAIN FUNCTION
 
 function checkForWinner() {
   const GUESS = document.querySelector("input").value.toUpperCase();
 
-  if (!easyWordArray.includes(GUESS)) {
-      alert('The word is not in the list of valid words.');
-      return;
-  }
+  const validWordArray = gameMode === 'easy' ? easyWordArray : hardWordArray;
+    if (!validWordArray.includes(GUESS)) {
+        alert('The word is not in the list of valid words.');
+        return;
+    }
 
   audio.play();
   const guessArray = GUESS.split("");
@@ -308,25 +342,21 @@ playAgainButton.addEventListener('click', () => {
   playAgainButton.style.display = 'none';
 });
 
-//! RESET GAME
+// ! RESET GAME
 
 function resetGame() {
   guesses = 6;
   currentRowIndex = 0;
-  
-  const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
-  CORRECT_GUESS = easyWordArray[randomWordIndex];
+
+  let randomWordIndex = Math.floor(Math.random() * (gameMode === 'easy' ? easyWordArray.length : hardWordArray.length));
+  CORRECT_GUESS = gameMode === 'easy' ? easyWordArray[randomWordIndex] : hardWordArray[randomWordIndex];
+  wordCellCount = gameMode === 'easy' ? 5 : 7;
+
   console.log(CORRECT_GUESS);
-  
 
   correctArray = CORRECT_GUESS.split("");
-  
-  gridRows.forEach(row => {
-      row.forEach(cell => {
-          cell.innerText = "";
-          cell.className = 'word-cell';
-      });
-  });
+
+  createGrid();
   
   guessesElement.innerText = guesses;
   
@@ -390,7 +420,7 @@ function displayRules() {
   rulesBox.style.border = '1px solid black';
 
   const rulesMessage = document.createElement('div');
-  rulesMessage.innerHTML = 'Enter a 5 letter word. <br> Green = Correct letter and placement, <br> Yellow = Correct letter, wrong placement, <br> Red = Wrong letter!';
+  rulesMessage.innerHTML = 'Enter a 5 or 7 letter word based on the selected mode. <br> Green = Correct letter and placement, <br> Yellow = Correct letter, wrong placement, <br> Red = Wrong letter!';
   rulesMessage.style.marginBottom = '10px'; 
 
   rulesBox.appendChild(rulesMessage);
@@ -427,4 +457,16 @@ inputBox.addEventListener('keyup', function(event) {
 
 localStorage.setItem('wordleWins', wins);
 
+
+// ! EASY AND HARD MODE 
+
+document.querySelector('.easy-mode-button').addEventListener('click', () => {
+  gameMode = 'easy';
+  resetGame();
+});
+
+document.querySelector('.hard-mode-button').addEventListener('click', () => {
+  gameMode = 'hard';
+  resetGame();
+});
 
