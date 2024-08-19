@@ -1,5 +1,5 @@
 console.log("Hello world! Java script is working!")
-const wordArray =  [
+const easyWordArray =  [
 'WHICH', 'THERE', 'THEIR', 'ABOUT', 'WOULD', 'THESE', 'OTHER', 'WORDS', 'COULD', 'WRITE',
 'FIRST', 'WATER', 'AFTER', 'WHERE', 'RIGHT', 'THINK', 'THREE', 'YEARS', 'PLACE', 'SOUND',
 'GREAT', 'AGAIN', 'STILL', 'EVERY', 'SMALL', 'FOUND', 'THOSE', 'NEVER', 'UNDER', 'MIGHT',
@@ -149,11 +149,14 @@ const wordArray =  [
 'CIVIC', 'SAINT', 'BEVEL', 'SONAR', 'AUNTS', 'PACKS', 'FROZE', 'TONIC', 'CORPS', 'SWARM',
 'FRANK', 'REPAY', 'WIRED', 'GAMER', 
 ];
+
+// ! CONSTS
+
 const wordGrid = document.querySelector(".grid");
 const wordCellCount = 5;
 const gridRows = [];
-const randomWordIndex = Math.floor(Math.random() * wordArray.length);
-let CORRECT_GUESS = wordArray[randomWordIndex];
+const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
+let CORRECT_GUESS = easyWordArray[randomWordIndex];
 console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 const submitButton = document.querySelector("#submit-button");
@@ -161,10 +164,15 @@ const inputBox = document.querySelector(".text-input");
 const guessesElement = document.querySelector("#guesses");
 const playAgainButton = document.getElementById('play-again');
 const rules = document.querySelector(".rules");
+const audio = document.querySelector("audio");
+audio.volume = 0.25;
+
 let guesses = 6;
 let currentRowIndex = 0;
 let wins = localStorage.getItem('wordleWins');
     wins = wins ? parseInt(wins) : 0;
+
+// ! ROW CREATION
 
 function createRow() {
 const row = [];
@@ -187,11 +195,12 @@ createRow(i);
 function checkForWinner() {
   const GUESS = document.querySelector("input").value.toUpperCase();
 
-  if (!wordArray.includes(GUESS)) {
+  if (!easyWordArray.includes(GUESS)) {
       alert('The word is not in the list of valid words.');
       return;
   }
 
+  audio.play();
   const guessArray = GUESS.split("");
   const displayGuessArray = [...guessArray];
   let correctArray = [...CORRECT_GUESS.split("")];
@@ -305,8 +314,8 @@ function resetGame() {
   guesses = 6;
   currentRowIndex = 0;
   
-  const randomWordIndex = Math.floor(Math.random() * wordArray.length);
-  CORRECT_GUESS = wordArray[randomWordIndex];
+  const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
+  CORRECT_GUESS = easyWordArray[randomWordIndex];
   console.log(CORRECT_GUESS);
   
 
@@ -386,7 +395,7 @@ function displayRules() {
 
   rulesBox.appendChild(rulesMessage);
 
-  // Append the rulesBox to the document body
+ 
   document.body.appendChild(rulesBox);
 }
 
@@ -404,7 +413,6 @@ submitButton.addEventListener('click', function(event) {
   if (event) {
     event.preventDefault();
     checkForWinner();
-    audio.play();
     inputBox.value = '';
   }
 });
@@ -413,7 +421,6 @@ inputBox.addEventListener('keyup', function(event) {
   if (event.key === 'Enter') {
     event.preventDefault();
     checkForWinner();
-    audio.play();
     inputBox.value = '';
   }
 });
