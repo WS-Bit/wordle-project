@@ -16,11 +16,12 @@ body {
 h1 {
   margin: 20px 0; 
   text-align: center; 
+  background-color: rgb(251, 238, 227);
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
   border: 1px solid rgb(0, 0, 0);
-  background-color: rgb(255, 239, 225);
   animation: fadeIn 0.5s ease-in-out;
   width: 15%;
+  color: rgb(126, 126, 126)
 }
 
 .rules {
@@ -36,6 +37,7 @@ h1 {
   animation: fadeIn 0.6s ease-in-out;
   border: 1px solid rgb(0, 0, 0);
   transition: background-color 0.3s ease;
+  color: rgb(113, 113, 113)
 }
 
 .rules:hover {
@@ -97,6 +99,7 @@ div.grid-wrapper {
   background-color: rgb(255, 244, 235);
   margin-right: 10px; 
   animation: fadeIn 0.8s ease-in-out;
+  color: rgb(138, 138, 138)
 }
 
 #submit-button {
@@ -111,6 +114,7 @@ div.grid-wrapper {
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.8s ease-in-out;
   transition: background-color 0.3s ease;
+  color: rgb(113, 113, 113)
 }
 
 #submit-button:hover {
@@ -128,6 +132,7 @@ div.grid-wrapper {
   height: 50px;
   margin-bottom: 20px;
   animation: fadeIn 0.9s ease-in-out;
+  color: rgb(113, 113, 113)
 }
 
 #guesses {
@@ -150,6 +155,7 @@ div.grid-wrapper {
   height: 50px;
   margin-bottom: 20px;
   animation: fadeIn 0.9s ease-in-out;
+  color: rgb(113, 113, 113)
 }
 
 #win-count {
@@ -158,7 +164,8 @@ div.grid-wrapper {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-left: 8px;
+  margin-left: 5px;
+  color: rgb(113, 113, 113)
 }
 
 .mode-container {
@@ -180,6 +187,7 @@ div.grid-wrapper {
   animation: fadeIn 0.6s ease-in-out;
   border: 1px solid rgb(0, 0, 0);
   transition: background-color 0.3s ease;
+  color: rgb(113, 113, 113)
 }
 
 .hard-mode-button:hover {
@@ -201,6 +209,7 @@ div.grid-wrapper {
   animation: fadeIn 0.6s ease-in-out;
   border: 1px solid rgb(0, 0, 0);
   transition: background-color 0.3s ease;
+  color: rgb(113, 113, 113)
 }
 
 .easy-mode-button:hover {
@@ -241,15 +250,15 @@ div.grid-wrapper {
 
 #play-again {
   display: none;
-  margin-top: 20px;
   margin-bottom: 10px;
   padding: 10px 20px;
   font-size: 16px;
   background-color: rgb(113, 255, 168);
   color: rgb(0, 0, 0);
-  border: none;
+  border: 1px solid black;
   cursor: pointer;
   border-radius: 5px;
+  color: rgb(113, 113, 113)
 }
 
 #play-again:hover {
@@ -261,9 +270,9 @@ div.grid-wrapper {
     font-size: 4vw;
   }
   .grid {
-    width: 90%; /* Ensure grid takes most of the width on smaller screens */
+    width: 90%;
   }
   .grid div {
-    font-size: 4vw; /* Adjust font size for smaller screens */
+    font-size: 4vw;
   }
 }
