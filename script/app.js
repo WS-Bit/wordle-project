@@ -184,6 +184,8 @@ for (let i = 0; i < 6; i++) {
 createRow(i);
 }
 
+//! MAIN FUNCTION
+
 function checkForWinner() {
   const GUESS = document.querySelector("input").value.toUpperCase();
 
@@ -229,12 +231,16 @@ function checkForWinner() {
   }
 }
 
+//! COLOUR CONTROL
+
 function colourHandling(guessArray, resultsArray) {
 gridRows[currentRowIndex].forEach((cell, index) => {
     cell.innerText = guessArray[index];
     cell.classList.add(resultsArray[index]);
 });
 }
+
+//! WIN AND LOSS DISPLAY 
 
 function winGame() {
   incrementWins()
@@ -294,6 +300,8 @@ playAgainButton.addEventListener('click', () => {
   resetGame();
   playAgainButton.style.display = 'none';
 });
+
+//! RESET GAME
 
 function resetGame() {
   guesses = 6;
@@ -406,4 +414,6 @@ inputBox.addEventListener('keyup', function(event) {
 localStorage.setItem('wordleWins', wins);
 }
 
-window.addEventListener("DOMContentLoaded", init)
+window.addEventListener("DOMContentLoaded", init, function() { 
+  initWinCounter();
+})
