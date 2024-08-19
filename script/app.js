@@ -346,8 +346,6 @@ function resetGame() {
   CORRECT_GUESS = gameMode === 'easy' ? easyWordArray[randomWordIndex] : hardWordArray[randomWordIndex];
   wordCellCount = gameMode === 'easy' ? 5 : 7;
 
-  console.log(CORRECT_GUESS);
-
   correctArray = CORRECT_GUESS.split("");
 
   createGrid();
