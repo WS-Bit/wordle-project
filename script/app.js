@@ -162,7 +162,7 @@ function winGame() {
   handleWinChange(mediaQuery);
 
   mediaQuery.addEventListener('change', handleWinChange);
-  document.body.appendChild(rulesBox);
+  document.body.appendChild(winGameMessage);
 }
 
 function loseGame() {
@@ -338,8 +338,8 @@ function hidePhoneRules() {
 
 rules.addEventListener('mouseover', displayRules);
 rules.addEventListener('mouseout', hideRules);
-rules.addEventListener('touchstart', displayPhoneRules);
-rules.addEventListener('touchend', hidePhoneRules);
+rules.addEventListener('touchend', displayPhoneRules);
+window.addEventListener('touchend', hidePhoneRules);
 
 
 
