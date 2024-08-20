@@ -91,7 +91,7 @@ export const easyWordArray =  [
 'FRONT', 'FACED', 'CHILL', 'SHORN', 'HORNY', 'BLOOM', 'SHOWY', 'GRATE',
 'LEAPT', 'ERROR', 'DREAD', 'VOGUE', 'GIRLY', 'FLOOR', 'ROUGE', 'FORTE',
 'STINT', 'RAVEN', 'WOMEN', 'STINT', 'GRAPE', 'HONED', 'CRIME', 'DRILL',
-'YOUNG', 'STUMP', 'GRAVE'
+'YOUNG', 'STUMP', 'GRAVE', 'ATONE', 'GAMER', 'KRILL'
 ];
 
 export const hardWordArray =  

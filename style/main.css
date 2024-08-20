@@ -275,4 +275,20 @@ div.grid-wrapper {
   .grid div {
     font-size: 4vw;
   }
+  #play-again {
+    font-size: 3vw;
+    padding: 5px 10px;
+  }
+  .text-input {
+    height: 40px;
+    width: 90px;
+    font-size: 4vw;
+  }
+  #submit-button {
+    height: 40px;
+    width: 60px;
+  }
+  .rules {
+    margin-bottom: 5px;
+  }
 }
