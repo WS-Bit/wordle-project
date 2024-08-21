@@ -10,7 +10,7 @@ let wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
 let CORRECT_GUESS = easyWordArray[randomWordIndex];
-// console.log(CORRECT_GUESS);
+console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 
 
@@ -74,8 +74,11 @@ function checkForWinner() {
   const validWordArray = (gameMode === 'easy' ? easyWordArray : hardWordArray).map(word => word.trim().toUpperCase());
     if (!validWordArray.includes(GUESS)) {
         alert('The word is not in the list of valid words.');
+        console.log('GUESS:', GUESS);
+        console.log('Valid Words:', validWordArray);
         return;
     }
+  console.log('Why has it got to here?"')
 
   audio.play();
   const guessArray = GUESS.split("");
@@ -230,7 +233,7 @@ function resetGame() {
   wordCellCount = gameMode === 'easy' ? 5 : 7;
 
   correctArray = CORRECT_GUESS.split("");
-  // console.log(CORRECT_GUESS);
+  console.log(CORRECT_GUESS);
 
   createGrid();
   
