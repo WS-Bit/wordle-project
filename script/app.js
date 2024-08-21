@@ -10,7 +10,7 @@ let wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
 let CORRECT_GUESS = easyWordArray[randomWordIndex];
-console.log(CORRECT_GUESS);
+// console.log(CORRECT_GUESS);
 let correctArray = CORRECT_GUESS.split("");
 
 
@@ -230,7 +230,7 @@ function resetGame() {
   wordCellCount = gameMode === 'easy' ? 5 : 7;
 
   correctArray = CORRECT_GUESS.split("");
-  console.log(CORRECT_GUESS);
+  // console.log(CORRECT_GUESS);
 
   createGrid();
   
