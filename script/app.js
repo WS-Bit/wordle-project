@@ -70,9 +70,8 @@ createGrid();
 //! MAIN FUNCTION
 
 function checkForWinner() {
-  const GUESS = document.querySelector("input").value.toUpperCase();
-
-  const validWordArray = gameMode === 'easy' ? easyWordArray : hardWordArray;
+  const GUESS = document.querySelector("input").value.trim().toUpperCase();
+  const validWordArray = (gameMode === 'easy' ? easyWordArray : hardWordArray).map(word => word.trim().toUpperCase());
     if (!validWordArray.includes(GUESS)) {
         alert('The word is not in the list of valid words.');
         return;
@@ -231,6 +230,7 @@ function resetGame() {
   wordCellCount = gameMode === 'easy' ? 5 : 7;
 
   correctArray = CORRECT_GUESS.split("");
+  console.log(CORRECT_GUESS);
 
   createGrid();
   
