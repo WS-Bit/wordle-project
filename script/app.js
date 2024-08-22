@@ -20,8 +20,12 @@ const guessesElement = document.querySelector("#guesses");
 const playAgainButton = document.getElementById('play-again');
 const rules = document.querySelector(".rules");
 const mediaQuery = window.matchMedia('(max-width: 600px)');
-const audio = document.querySelector("audio");
-audio.volume = 0.25;
+const enterAudio = document.querySelector("#enterAudio");
+enterAudio.volume = 0.25;
+const winAudio = document.querySelector("#winAudio");
+winAudio.volume = 0.25;
+const loseAudio = document.querySelector("#loseAudio");
+loseAudio.volume = 0.25;
 let displayingRules = false;
 
 let guesses = 6;
@@ -79,7 +83,7 @@ function checkForWinner() {
         return;
     }
 
-  audio.play();
+  enterAudio.play();
   const guessArray = GUESS.split("");
   const displayGuessArray = [...guessArray];
   let correctArray = [...CORRECT_GUESS.split("")];
@@ -129,6 +133,7 @@ gridRows[currentRowIndex].forEach((cell, index) => {
 //! WIN AND LOSS DISPLAY 
 
 function winGame() {
+  winAudio.play()
   incrementWins()
   gameActive = false;
   const winGameMessage = document.createElement('div');
@@ -167,6 +172,7 @@ function winGame() {
 }
 
 function loseGame() {
+  loseAudio.play()
   gameActive = false;
   eraseWins();
   const gameOverContainer = document.createElement('div');
@@ -336,6 +342,8 @@ function resetGame() {
 document.addEventListener('DOMContentLoaded', function() {
   initWinCounter();
 });
+
+// ! FUNCTIONS
 
 function initWinCounter() {
   let wins = localStorage.getItem('wordleWins');
