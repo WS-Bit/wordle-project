@@ -274,59 +274,38 @@ div.grid-wrapper {
   background-color: rgb(102, 228, 150);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 430px) { 
+  body {
+    justify-content: flex-start; 
+    padding: 20px; 
+  }
+
   h1 {
-    font-size: 4vw;
-    margin-top: 10px;
-    margin-bottom: 10px; 
-  }
-  .grid {
-    width: 40%;
-  }
-  .grid div {
-    font-size: 4vw;
-  }
-  #play-again {
-    font-size: 3vw;
-    padding: 5px 10px;
-  }
-  .text-input {
-    height: 40px;
-    width: 90px;
-    font-size: 4vw;
-  }
-  #submit-button {
-    height: 40px;
-    width: 60px;
-    font-size: 13px;
-  }
-  .guesses-box {
-    height: 9vw;
-    width: 15vw;
-    font-size: 3vw;
+    font-size: 6vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
-  #win-counter {
-    height: 8vw;
-    width: 15vw;
-    font-size: 3vw;
-  }
-
-  #win-count {
-    font-size: 3vw;
-  }
   .rules {
-    height: 7vw;
-    width: 12vw;
+    width: 30vw;
+    height: auto;
+    font-size: 5vw;
+    margin: 20px 0;
+  }
+
+  .text-input, #submit-button, .guesses-box, #win-counter {
     font-size: 4vw;
+    padding: 10px;
   }
-  .easy-mode-button {
-    height: 40px;
-    font-size: 13px;
+
+  .grid.easy-mode {
+    width: 80vw;
+    height: auto;
   }
-  .hard-mode-button {
-    height: 40px;
-    font-size: 13px;
+
+  .grid.hard-mode {
+    width: 90vw;
+    height: auto;
   }
 }
 
