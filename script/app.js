@@ -310,15 +310,14 @@ playAgainButton.addEventListener('click', () => {
 });
 
 function resetGame() {
+  submitButton.removeEventListener('click', checkForWinner);
   guesses = 6;
   currentRowIndex = 0;
   inputBox.setAttribute('maxlength', gameMode === 'easy' ? 5:7)
-  submitButton.removeEventListener('click', checkForWinner);
 
   let randomWordIndex = Math.floor(Math.random() * (gameMode === 'easy' ? easyWordArray.length : hardWordArray.length));
   CORRECT_GUESS = gameMode === 'easy' ? easyWordArray[randomWordIndex] : hardWordArray[randomWordIndex];
   wordCellCount = gameMode === 'easy' ? 5 : 7;
-
   correctArray = CORRECT_GUESS.split("");
 
   createGrid();
@@ -333,6 +332,7 @@ function resetGame() {
     if (winMessage) winMessage.remove();
   
   submitButton.addEventListener('click', checkForWinner);
+  submitButton.removeEventListener('click', checkForWinner);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
