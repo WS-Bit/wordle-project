@@ -10,7 +10,7 @@ let wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
 let CORRECT_GUESS = easyWordArray[randomWordIndex];
-console.log(CORRECT_GUESS);
+console.log(CORRECT_GUESS)
 let correctArray = CORRECT_GUESS.split("");
 
 
@@ -73,12 +73,11 @@ function checkForWinner() {
   const GUESS = document.querySelector("input").value.trim().toUpperCase();
   const validWordArray = (gameMode === 'easy' ? easyWordArray : hardWordArray).map(word => word.trim().toUpperCase());
     if (!validWordArray.includes(GUESS)) {
-        alert('The word is not in the list of valid words.');
+        showInvalidWordMessage();
         console.log('GUESS:', GUESS);
         console.log('Valid Words:', validWordArray);
         return;
     }
-  console.log('Why has it got to here?"')
 
   audio.play();
   const guessArray = GUESS.split("");
@@ -221,6 +220,91 @@ playAgainButton.addEventListener('click', () => {
   playAgainButton.style.display = 'none';
 });
 
+
+// ! INVALID WORD MESSAGE DISPLAY
+
+function showInvalidWordMessage() {
+  const invalidWordMessage = document.createElement('div');
+
+  invalidWordMessage.id = 'invalidWordMessage';
+  invalidWordMessage.innerHTML = `
+    <p>Not a valid word in the word list!</p>
+    <button id="ok-button" style="display: none;">OK</button>
+  `;
+  invalidWordMessage.style.position = 'absolute';
+  invalidWordMessage.style.top = '50%';
+  invalidWordMessage.style.left = '50%';
+  invalidWordMessage.style.transform = 'translate(-50%, -50%)';
+  invalidWordMessage.style.backgroundColor = 'rgb(115, 167, 250)';
+  invalidWordMessage.style.fontSize = '28px';
+  invalidWordMessage.style.textAlign = 'center';
+  invalidWordMessage.style.padding = '20px';
+  invalidWordMessage.style.fontWeight = 'bold';
+  invalidWordMessage.style.border = '1px solid black';
+
+  invalidWordMessage.style.display = 'flex';
+  invalidWordMessage.style.flexDirection = 'column';
+  invalidWordMessage.style.alignItems = 'center';
+  invalidWordMessage.style.justifyContent = 'center';
+
+  document.body.appendChild(invalidWordMessage);
+
+  const okButton = invalidWordMessage.querySelector('#ok-button');
+  okButton.style.fontSize = '18px';
+  okButton.style.padding = '10px 20px';
+  okButton.style.marginTop = '10px';
+  okButton.style.display = 'block';
+  okButton.style.backgroundColor = 'rgb(253, 243, 235)';
+
+  const inputBox = document.querySelector('.text-input');
+  const submitButton = document.getElementById('submit-button');
+  inputBox.disabled = true;
+  submitButton.disabled = true;
+
+  function disableEnterKey(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  }
+
+  document.addEventListener('keydown', disableEnterKey);
+
+  okButton.addEventListener('click', function () {
+    inputBox.disabled = false;
+    submitButton.disabled = false;
+    document.removeEventListener('keydown', disableEnterKey);
+    document.body.removeChild(invalidWordMessage); 
+  });
+
+
+  function handleInvalidWordChange(event) {
+    if (event.matches) {
+      invalidWordMessage.style.fontSize = '18px';  
+      invalidWordMessage.style.padding = '15px';  
+    } else {
+      invalidWordMessage.style.fontSize = '24px';  
+      invalidWordMessage.style.padding = '10px 20px';   
+    }
+  }
+
+  function handleOkButtonChange(event) {
+    if (event.matches) {
+      okButton.style.fontSize = '14px';  
+      okButton.style.padding = '8px';  
+    } else {
+      okButton.style.fontSize = '18px';  
+      okButton.style.padding = '10px';   
+    }
+  }
+  
+  handleInvalidWordChange(mediaQuery);
+  handleOkButtonChange(mediaQuery);
+
+  mediaQuery.addEventListener('change', handleInvalidWordChange);
+  mediaQuery.addEventListener('change', handleOkButtonChange);
+}
+
+
 // ! RESET GAME
 
 function resetGame() {
@@ -233,7 +317,7 @@ function resetGame() {
   wordCellCount = gameMode === 'easy' ? 5 : 7;
 
   correctArray = CORRECT_GUESS.split("");
-  console.log(CORRECT_GUESS);
+  console.log(CORRECT_GUESS)
 
   createGrid();
   
@@ -291,13 +375,13 @@ function displayRules() {
   rulesBox.style.top = '50%';
   rulesBox.style.left = '50%';
   rulesBox.style.transform = 'translate(-50%, -50%)';
-  rulesBox.style.backgroundColor = 'rgb(250, 223, 200)';
+  rulesBox.style.backgroundColor = 'rgb(255, 243, 233)';
   rulesBox.style.fontSize = '28px';
   rulesBox.style.padding = '20px';
   rulesBox.style.fontWeight = 'bold';
   rulesBox.style.textAlign = 'center';
   rulesBox.style.border = '1px solid black';
-  rulesBox.style.color = 'rgb(138, 138, 138)'
+  rulesBox.style.color = 'rgb(0, 0, 0,)'
 
 
   const rulesMessage = document.createElement('div');
