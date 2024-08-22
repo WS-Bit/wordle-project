@@ -274,7 +274,7 @@ div.grid-wrapper {
   background-color: rgb(102, 228, 150);
 }
 
-@media (max-width: 430px) { 
+@media (max-width: 420px) { 
   body {
     justify-content: flex-start; 
     padding: 20px; 
