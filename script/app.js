@@ -10,7 +10,6 @@ let wordCellCount = 5;
 const gridRows = [];
 const randomWordIndex = Math.floor(Math.random() * easyWordArray.length);
 let CORRECT_GUESS = easyWordArray[randomWordIndex];
-console.log(CORRECT_GUESS)
 let correctArray = CORRECT_GUESS.split("");
 
 
@@ -34,7 +33,7 @@ let gameActive = true;
 let wins = localStorage.getItem('wordleWins');
     wins = wins ? parseInt(wins) : 0;
 
-let gameMode ='easy';
+let gameMode = 'easy';
 
 // ! ROW CREATION
 
@@ -63,7 +62,6 @@ function createGrid() {
       wordGrid.classList.add('hard-mode');
   }
 
-  // Create the rows
   for (let i = 0; i < 6; i++) {
       createRow();
   }
@@ -78,8 +76,6 @@ function checkForWinner() {
   const validWordArray = (gameMode === 'easy' ? easyWordArray : hardWordArray).map(word => word.trim().toUpperCase());
     if (!validWordArray.includes(GUESS)) {
         showInvalidWordMessage();
-        console.log('GUESS:', GUESS);
-        console.log('Valid Words:', validWordArray);
         return;
     }
 
@@ -221,10 +217,7 @@ function loseGame() {
   
 }
 
-playAgainButton.addEventListener('click', () => {
-  resetGame();
-  playAgainButton.style.display = 'none';
-});
+
 
 
 // ! INVALID WORD MESSAGE DISPLAY
@@ -309,8 +302,12 @@ function showInvalidWordMessage() {
   mediaQuery.addEventListener('change', handleOkButtonChange);
 }
 
-
 // ! RESET GAME
+
+playAgainButton.addEventListener('click', () => {
+  resetGame();
+  playAgainButton.style.display = 'none';
+});
 
 function resetGame() {
   guesses = 6;
@@ -323,7 +320,6 @@ function resetGame() {
   wordCellCount = gameMode === 'easy' ? 5 : 7;
 
   correctArray = CORRECT_GUESS.split("");
-  console.log(CORRECT_GUESS)
 
   createGrid();
   
