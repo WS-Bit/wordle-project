@@ -46,8 +46,8 @@ h1 {
 }
 
 div.grid-wrapper {
-  flex-grow: 0.5; 
   display: flex;
+  flex-grow: 0.7; 
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -276,7 +276,7 @@ div.grid-wrapper {
     margin-bottom: 10px; 
   }
   .grid {
-    width: 50%;
+    width: 40%;
   }
   .grid div {
     font-size: 4vw;

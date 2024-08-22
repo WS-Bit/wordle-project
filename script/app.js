@@ -21,11 +21,11 @@ const playAgainButton = document.getElementById('play-again');
 const rules = document.querySelector(".rules");
 const mediaQuery = window.matchMedia('(max-width: 600px)');
 const enterAudio = document.querySelector("#enterAudio");
-enterAudio.volume = 0.25;
+enterAudio.volume = 0.3;
 const winAudio = document.querySelector("#winAudio");
-winAudio.volume = 0.25;
+winAudio.volume = 0.3;
 const loseAudio = document.querySelector("#loseAudio");
-loseAudio.volume = 0.25;
+loseAudio.volume = 0.3;
 let displayingRules = false;
 
 let guesses = 6;
@@ -235,8 +235,7 @@ function showInvalidWordMessage() {
   invalidWordMessage.id = 'invalidWordMessage';
   invalidWordMessage.innerHTML = `
     <p>Not a valid word in the word list!</p>
-    <button id="ok-button" style="display: none;">OK</button>
-  `;
+    <button id="ok-button" style="display: none;">OK</button>`;
   invalidWordMessage.style.position = 'absolute';
   invalidWordMessage.style.top = '50%';
   invalidWordMessage.style.left = '50%';
@@ -275,7 +274,7 @@ function showInvalidWordMessage() {
 
   document.addEventListener('keydown', disableEnterKey);
 
-  okButton.addEventListener('click', function () {
+  okButton.addEventListener('click', function() {
     inputBox.disabled = false;
     submitButton.disabled = false;
     document.removeEventListener('keydown', disableEnterKey);
@@ -317,6 +316,7 @@ function resetGame() {
   guesses = 6;
   currentRowIndex = 0;
   inputBox.setAttribute('maxlength', gameMode === 'easy' ? 5:7)
+  submitButton.removeEventListener('click', checkForWinner);
 
   let randomWordIndex = Math.floor(Math.random() * (gameMode === 'easy' ? easyWordArray.length : hardWordArray.length));
   CORRECT_GUESS = gameMode === 'easy' ? easyWordArray[randomWordIndex] : hardWordArray[randomWordIndex];
