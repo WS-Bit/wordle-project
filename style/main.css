@@ -286,8 +286,14 @@ div.grid-wrapper {
     margin-bottom: 20px;
   }
 
+  .grid div {
+    justify-content: flex-start;
+    height: 12vw;
+    width: 13vw;
+  }
+
   .rules {
-    width: 30vw;
+    
     height: auto;
     font-size: 5vw;
     margin: 20px 0;
