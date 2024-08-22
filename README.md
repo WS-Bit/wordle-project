@@ -6,4 +6,12 @@ Out of the options of games supplied, I wanted to push myself with the logic of 
 
 ![image of game](./images/SSH%201.png)
 
+## Rules of the game
 
+Here are the rules of the game:
+
+```js
+rulesMessage.innerHTML = 'Enter a 5 or 7 letter word based on the selected mode. <br> Green = Correct letter and placement, <br> Yellow = Correct letter, wrong placement, <br> Red = Wrong letter!';
+```
+
+I inputted the rules via JavaScript, creating a 
