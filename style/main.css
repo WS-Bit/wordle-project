@@ -57,6 +57,7 @@ div.grid-wrapper {
   align-items: center;
   width: 100%;
   animation: fadeIn 0.7s ease-in-out;
+  text-align: center;
 }
 
 .grid {
@@ -68,6 +69,7 @@ div.grid-wrapper {
   animation: fadeIn 0.7s ease-in-out;
   padding: 20px;
   justify-content: center;
+  text-align: center;
 }
 
 .grid.easy-mode {
@@ -235,21 +237,25 @@ div.grid-wrapper {
   align-items: center;
   font-size: 1.5rem; /* Adjust font size for letters */
   animation: fadeIn 0.6s ease-in-out;
+  text-align: center;
 }
 
 .grid div.correct {
   background-color: rgb(113, 255, 168);
   transition: background-color 0.6s ease;
+  text-align: center;
 }
 
 .grid div.misplaced {
   background-color: rgb(255, 189, 97);
   transition: background-color 0.6s ease;
+  text-align: center;
 }
 
 .grid div.incorrect {
   background-color: rgb(255, 115, 115);
   transition: background-color 0.6s ease;
+  text-align: center;
 }
 
 @keyframes fadeIn {
@@ -287,9 +293,10 @@ div.grid-wrapper {
   }
 
   .grid div {
-    justify-content: flex-start;
+    justify-content: center;
     height: 12vw;
     width: 13vw;
+    text-align: center;
   }
 
   .rules {
