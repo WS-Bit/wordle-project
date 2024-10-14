@@ -1,9 +1,26 @@
-# Will's Wild Words - my wordle game project for GA
----
+# Will's Wild Words - Wordle Game Project
 
-### The game
-Wordle is a word guessing game that flourished during lockdown, and is a game that my fiance and I enjoy playing every night.  <br>
-Out of the options of games supplied, I wanted to push myself with the logic of making a game, so I chose something with more difficulty, but not enough that I wouldn't have time to make it look appealing.
+## Introduction
+Will's Wild Words is a Wordle-inspired word guessing game developed as a project for General Assembly. Wordle is a popular word game that gained immense popularity during the COVID-19 lockdowns. This project aims to recreate the engaging gameplay of Wordle while adding unique features and a personal touch.
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+## Features
+- Random word selection from a curated list
+- Two game modes: Easy (5-letter words) and Hard (7-letter words)
+- Win streak counter
+- Invalid word detection
+- Responsive design for various screen sizes
+- Audio feedback for game actions
+- Animated color transitions for guess feedback
+
+## Installation and Setup
+1. Clone the repository: `git clone [repository-url]`
+2. Navigate to the project directory: `cd wills-wild-words`
+3. Open `index.html` in your preferred web browser
 
 ![image of game](./images/SSH%201.png)
 
@@ -226,4 +243,21 @@ Here is also a picture! <br>
 
 
 So here we have the creation of the win screen! It will display after correctly guessing the word. To enable the game again I created a 'Play Again' button in CSS that stays hidden until either of the end-game function are called. <br>
+
+## Challenges Faced
+One of the main challenges was implementing the color-coding logic for correct and misplaced letters. This was solved by creating separate arrays for the guess and the correct word, and using a two-pass algorithm to first mark correct letters and then misplaced ones.
+
+Another challenge was making the game responsive for different screen sizes. This was addressed by using media queries and flexible CSS units.
+
+## Future Improvements
+- Add a daily challenge mode
+- Implement a leaderboard system
+- Expand the word list
+- Add difficulty levels with time constraints
+
+## Acknowledgements
+- Inspiration: The original Wordle game by Josh Wardle
+
+## Author
+Will Sexton - General Assembly Student
 
